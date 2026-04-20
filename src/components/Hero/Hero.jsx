@@ -2,7 +2,13 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { personalInfo } from "../../data/portfolioData";
-import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiSend } from "react-icons/fi";
+import {
+  FiGithub,
+  FiLinkedin,
+  FiInstagram,
+  FiMail,
+  FiSend,
+} from "react-icons/fi";
 
 const socialLinks = [
   { href: personalInfo.linkedin, icon: <FiLinkedin />, label: "LinkedIn" },
@@ -18,16 +24,16 @@ export default function Hero() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     let particles = [];
     let animId;
-    
+
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
-    window.addEventListener('resize', resize);
+
+    window.addEventListener("resize", resize);
     resize();
 
     class Particle {
@@ -45,7 +51,13 @@ export default function Hero() {
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        if (
+          this.x < 0 ||
+          this.x > canvas.width ||
+          this.y < 0 ||
+          this.y > canvas.height
+        )
+          this.reset();
       }
       draw() {
         ctx.fillStyle = `rgba(96, 165, 250, ${this.opacity})`;
@@ -59,7 +71,7 @@ export default function Hero() {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
+      particles.forEach((p) => {
         p.update();
         p.draw();
       });
@@ -68,13 +80,19 @@ export default function Hero() {
     animate();
     return () => {
       cancelAnimationFrame(animId);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#030712] pt-48 pb-32">
-      <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#030712] pt-48 pb-32"
+    >
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 pointer-events-none z-0"
+      />
 
       {/* Modern Background Accents */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_70%)]" />
@@ -90,7 +108,9 @@ export default function Hero() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
-          <span className="text-[0.6rem] font-black uppercase tracking-[0.25em] text-white/60">Available for Opportunities</span>
+          <span className="text-[0.6rem] font-black uppercase tracking-[0.25em] text-white/60">
+            Available for Opportunities
+          </span>
         </motion.div>
 
         {/* Hello Text */}
@@ -107,7 +127,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: 'spring', damping: 20, stiffness: 100 }}
+          transition={{ type: "spring", damping: 20, stiffness: 100 }}
           className="text-5xl md:text-8xl font-black text-white tracking-tighter mb-8"
         >
           Vaibhav <span className="gradient-text">Wable</span>
@@ -131,8 +151,15 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="max-w-2xl text-base md:text-lg text-slate-500 leading-relaxed mb-12"
         >
-          Software Engineer specializing in <span className="text-white font-bold">Flutter, Node.js, and AI Architecture</span>. 
-          Leading mobile engineering efforts at <span className="text-blue-400 underline decoration-blue-400/20 underline-offset-8">CentraLogic</span>.
+          Software Engineer specializing in{" "}
+          <span className="text-white font-bold">
+            Flutter, Node.js, and AI Architecture
+          </span>
+          . Leading mobile engineering efforts at{" "}
+          <span className="text-blue-400 underline decoration-blue-400/20 underline-offset-8">
+            CentraLogic
+          </span>
+          .
         </motion.p>
 
         {/* CTA Buttons */}
@@ -142,11 +169,18 @@ export default function Hero() {
           transition={{ delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center gap-6 mb-20"
         >
-          <button className="btn-primary" onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}>
+          <button
+            className="btn-primary"
+            onClick={() =>
+              document
+                .getElementById("contact")
+                .scrollIntoView({ behavior: "smooth" })
+            }
+          >
             <FiSend /> Let's Talk
           </button>
           <a
-            href="https://drive.google.com/file/d/1g-ByJOlQpbyOyXkfXDYkHIjTGjKdpfc3/view?usp=sharing"
+            href="https://drive.google.com/file/d/1G5uB7ISBS2VRscJ2eWWXBAxMFwdl2rVO/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"
@@ -157,10 +191,10 @@ export default function Hero() {
 
         {/* Social Links Badge */}
         <motion.div
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 0.8 }}
-           className="flex items-center gap-3 p-2 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="flex items-center gap-3 p-2 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm"
         >
           {socialLinks.map((item, idx) => (
             <a
@@ -185,14 +219,18 @@ export default function Hero() {
           className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { label: 'Years Exp.', value: '2+' },
-            { label: 'Apps Shipped', value: '10+' },
-            { label: 'Tech Stacks', value: '5+' },
-            { label: 'Problems Solved', value: '∞' },
+            { label: "Years Exp.", value: "2+" },
+            { label: "Apps Shipped", value: "10+" },
+            { label: "Tech Stacks", value: "5+" },
+            { label: "Problems Solved", value: "∞" },
           ].map((stat, i) => (
             <div key={i} className="glass-card p-6 rounded-3xl group text-left">
-              <h4 className="text-2xl md:text-3xl font-black text-white group-hover:text-blue-400 transition-colors uppercase">{stat.value}</h4>
-              <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-500 mt-1">{stat.label}</p>
+              <h4 className="text-2xl md:text-3xl font-black text-white group-hover:text-blue-400 transition-colors uppercase">
+                {stat.value}
+              </h4>
+              <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-500 mt-1">
+                {stat.label}
+              </p>
             </div>
           ))}
         </motion.div>
