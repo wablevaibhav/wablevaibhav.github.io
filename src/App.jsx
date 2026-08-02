@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
-import DualPath from './components/DualPath/DualPath';
 import Skills from './components/Skills/Skills';
 import Experience from './components/Experience/Experience';
 import Projects from './components/Projects/Projects';
@@ -95,7 +94,6 @@ export default function App() {
           <main>
             <Hero />
             <About />
-            <DualPath />
             <Skills />
             <Experience />
             <Projects />
