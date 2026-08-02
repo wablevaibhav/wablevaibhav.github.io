@@ -4,6 +4,7 @@
 export const personalInfo = {
   name: "Vaibhav Wable",
   title: "Software Engineer",
+  availability: "Open to freelance & contract work",
   taglines: [
     "Cross-Platform App Developer",
     "React Native & Flutter Specialist",
@@ -11,10 +12,10 @@ export const personalInfo = {
     "AI-Assisted Workflow Advocate",
     "Performance Optimization Expert",
   ],
-  about: `Software Engineer with experience building high-performance cross-platform applications using Flutter, React Native, and Next.js. I specialize in scalable architecture, performance optimization, and rapid development using AI-assisted workflows.
+  about: `Software Engineer with 3+ years of experience building cross-platform mobile and web products. I currently work at CentraLogic, leading Flutter development, shipping Android & iOS apps, and integrating backends with Node.js, AWS, and Firebase.
 
-With a proven track record of improving application performance by ~20% and managing end-to-end CI/CD deployments, I focus on delivering production-grade solutions across Web, Android, and iOS while consistently leading code reviews and mentoring developers.`,
-  location: "Current: Pune, India",
+I also take freelance and contract work — Flutter / React Native apps, web apps, API integrations, and end-to-end Play Store & App Store delivery. I use AI tools like Cursor and Claude to move faster on features, migrations, and code quality.`,
+  location: "Pune, India",
   email: "vaibhavswable@gmail.com",
   linkedin: "https://www.linkedin.com/in/vaibhavwable/",
   github: "https://github.com/wablevaibhav",
@@ -100,12 +101,12 @@ export const experiences = [
     location: "Pune, India",
     color: "#60a5fa",
     highlights: [
+      "Promoted from Software Engineer Trainee (Jan–Jun 2024) to Software Engineer (Jun 2024 – Present).",
       "Developed and optimized cross-platform applications using Flutter and React Native, improving performance by ~20%.",
-      "Managed end-to-end deployments across Web, Android, and iOS using CI/CD pipelines (GitHub Actions, Codemagic, Jenkins), reducing release time by 20%.",
+      "Managed end-to-end deployments across Web, Android, and iOS using CI/CD (GitHub Actions, Codemagic, Jenkins).",
       "Built modern web applications using Next.js and mobile apps using Expo.",
-      "Designed reusable UI components and scalable architecture, reducing development effort and improving consistency across applications.",
-      "Led PR reviews, mentored team members, and ensured code quality standards.",
-      "Leveraged AI tools (ChatGPT, GitHub Copilot, Cursor, Claude Code) to accelerate development and debugging.",
+      "Designed reusable UI components and scalable architecture; led PR reviews and mentored teammates.",
+      "Leveraged AI tools (ChatGPT, GitHub Copilot, Cursor, Claude) to accelerate development and debugging.",
     ],
     tech: [
       "Flutter",
@@ -119,6 +120,22 @@ export const experiences = [
     ],
   },
   {
+    id: "freelance",
+    company: "Freelance",
+    role: "Mobile Application Developer",
+    period: "Aug 2021 – Dec 2023",
+    duration: "2+ years",
+    type: "Freelance",
+    location: "Remote / Pune, India",
+    color: "#2dd4bf",
+    highlights: [
+      "Delivered client apps end-to-end: requirements → UI → APIs → deployment → support.",
+      "Built cross-platform mobile experiences with Flutter and native Android where needed.",
+      "Integrated backends and third-party services; handled Play Store release support.",
+    ],
+    tech: ["Flutter", "Android", "APIs", "Firebase", "Client Delivery"],
+  },
+  {
     id: "rootkit",
     company: "RootKit.exe MIT-WPU",
     role: "Android Developer Intern",
@@ -128,7 +145,7 @@ export const experiences = [
     location: "Pune, India",
     color: "#818cf8",
     highlights: [
-      "Improved application performance and resolved critical bugs, enhancing usability for MIT-WPU students.",
+      "Improved application performance and resolved critical bugs for MIT-WPU students.",
       "Developed features using Kotlin and XML for student engagement.",
     ],
     tech: ["Kotlin", "Android SDK", "XML", "Mobile UX", "Debugging"],
@@ -214,7 +231,116 @@ export const projects = [
     gradient: "linear-gradient(135deg, #3a1029, #1a1640)",
     emoji: "✨",
     status: "Live",
-    links: { github: "https://github.com/wablevaibhav", live: "#" },
+    links: {
+      github: "https://github.com/wablevaibhav/wablevaibhav.github.io",
+      live: "https://wablevaibhav.github.io",
+    },
+  },
+  {
+    id: "linkedin-clone",
+    title: "LinkedIn Clone",
+    category: "Android · Kotlin",
+    description: "LinkedIn-inspired Android app built with Kotlin.",
+    longDescription:
+      "A feature-rich LinkedIn clone showcasing native Android development — profile views, feed interactions, and Material Design UI patterns built entirely in Kotlin.",
+    tech: ["Kotlin", "Android SDK", "XML", "Material Design"],
+    features: [
+      "Profile & feed screens",
+      "LinkedIn-inspired UI",
+      "Native Android architecture",
+      "Material Design components",
+    ],
+    color: "#0A66C2",
+    gradient: "linear-gradient(135deg, #0d1a3a, #1a1640)",
+    emoji: "💼",
+    status: "Open Source",
+    links: { github: "https://github.com/wablevaibhav/LinkedIn", live: null },
+  },
+  {
+    id: "foodrunner",
+    title: "FoodRunner",
+    category: "Android · Kotlin",
+    description: "Food delivery app built for an Internshala assignment.",
+    longDescription:
+      "A Kotlin Android app demonstrating food ordering workflows — menu browsing, cart management, and order placement with a clean mobile UX.",
+    tech: ["Kotlin", "Android SDK", "XML", "REST APIs"],
+    features: [
+      "Menu browsing & search",
+      "Cart & checkout flow",
+      "Order tracking UI",
+      "Responsive mobile layout",
+    ],
+    color: "#f97316",
+    gradient: "linear-gradient(135deg, #3a1f0d, #2d1a0d)",
+    emoji: "🍔",
+    status: "Open Source",
+    links: { github: "https://github.com/wablevaibhav/FoodRunner", live: null },
+  },
+  {
+    id: "resume-builder",
+    title: "Resume Builder",
+    category: "Web · Django",
+    description: "Resume builder web app using the Django framework.",
+    longDescription:
+      "A Django-powered resume builder that lets users create, edit, and export professional resumes through a structured web form with template rendering.",
+    tech: ["Python", "Django", "HTML", "CSS", "SQLite"],
+    features: [
+      "Multi-section resume forms",
+      "Template-based PDF export",
+      "User session management",
+      "CRUD resume operations",
+    ],
+    color: "#10b981",
+    gradient: "linear-gradient(135deg, #0d3a26, #1a3050)",
+    emoji: "📄",
+    status: "Open Source",
+    links: {
+      github: "https://github.com/wablevaibhav/resume_builder",
+      live: null,
+    },
+  },
+  {
+    id: "folkchat",
+    title: "FolkChat",
+    category: "Android · Java",
+    description: "Folk messaging app for real-time chat.",
+    longDescription:
+      "An Android messaging application built in Java — user authentication, chat threads, and real-time message delivery for peer-to-peer communication.",
+    tech: ["Java", "Android SDK", "Firebase", "XML"],
+    features: [
+      "User registration & login",
+      "Real-time messaging",
+      "Chat thread management",
+      "Push notification support",
+    ],
+    color: "#8b5cf6",
+    gradient: "linear-gradient(135deg, #1a0d3a, #2d1a40)",
+    emoji: "💬",
+    status: "Open Source",
+    links: { github: "https://github.com/wablevaibhav/FolkChat", live: null },
+  },
+  {
+    id: "claryft-components",
+    title: "Claryft Components",
+    category: "Flutter · Dart",
+    description: "Custom reusable Flutter component library for Claryft.",
+    longDescription:
+      "A Dart/Flutter package of custom UI components — buttons, cards, inputs, and layout widgets designed for consistent branding across Claryft mobile apps.",
+    tech: ["Dart", "Flutter", "Widget Library", "Material Design"],
+    features: [
+      "Reusable UI widgets",
+      "Consistent design tokens",
+      "Composable component API",
+      "Cross-app theming support",
+    ],
+    color: "#54C5F8",
+    gradient: "linear-gradient(135deg, #0d2a3a, #1a2040)",
+    emoji: "🧩",
+    status: "Open Source",
+    links: {
+      github: "https://github.com/wablevaibhav/claryft_components",
+      live: null,
+    },
   },
 ];
 

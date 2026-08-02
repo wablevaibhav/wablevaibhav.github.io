@@ -5,18 +5,17 @@ import { experiences } from "../../data/portfolioData";
 import {
   FiCalendar,
   FiMapPin,
-  FiBriefcase,
   FiChevronRight,
 } from "react-icons/fi";
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "circOut" } },
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "circOut" } },
 };
 
 function ExperienceCard({ exp, index, isActive, onClick }) {
@@ -24,43 +23,35 @@ function ExperienceCard({ exp, index, isActive, onClick }) {
     <motion.div
       layout
       variants={itemVariants}
-      className={`group relative flex gap-8 p-8 md:p-12 rounded-[3.5rem] transition-all duration-500 cursor-pointer glass-card 
-        ${isActive ? "bg-white/[0.05] border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.1)]" : "bg-white/[0.02] border-white/5 hover:bg-white/[0.04]"}`}
+      className={`group relative flex gap-4 p-4 md:p-5 rounded-2xl transition-all duration-300 cursor-pointer surface-card
+        ${isActive ? "border-[#2EE6D6]/35 shadow-[0_0_28px_rgba(46,230,214,0.08)]" : "hover:border-white/15"}`}
       onClick={onClick}
     >
-      {/* Index Number */}
-      <div className="absolute top-8 right-12 text-6xl md:text-8xl font-black text-white/[0.02] group-hover:text-blue-500/[0.03] transition-colors font-mono pointer-events-none">
-        {String(index + 1).padStart(2, "0")}
-      </div>
-
-      {/* Timeline Visuals */}
-      <div className="hidden md:flex flex-col items-center pt-2 shrink-0">
-        <div className={`w-4 h-4 rounded-full transition-all duration-500 ${isActive ? "bg-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.6)]" : "bg-white/10 group-hover:bg-white/20"}`} />
+      <div className="hidden md:flex flex-col items-center pt-1.5 shrink-0">
+        <div className={`w-2.5 h-2.5 rounded-full transition-all ${isActive ? "bg-[#2EE6D6] shadow-[0_0_12px_rgba(46,230,214,0.5)]" : "bg-white/15"}`} />
         {index < experiences.length - 1 && (
-          <div className="w-[1px] flex-grow bg-gradient-to-b from-white/10 to-transparent mt-4" />
+          <div className="w-px flex-grow bg-gradient-to-b from-white/10 to-transparent mt-2" />
         )}
       </div>
 
-      <div className="flex-grow relative z-10">
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-8">
+      <div className="flex-grow relative z-10 min-w-0">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-3 mb-2">
           <div>
-            <span className="text-[0.65rem] font-black uppercase tracking-[0.3em] text-blue-400/80 mb-3 block">
+            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-[#2EE6D6]/90 mb-1.5 block">
               {exp.type}
             </span>
-            <h3 className="text-2xl md:text-4xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors tracking-tight">
+            <h3 className="heading-card text-white mb-1 group-hover:text-[#2EE6D6] transition-colors">
               {exp.role}
             </h3>
-            <div className="flex items-center gap-2 text-slate-300 font-bold uppercase text-sm tracking-widest opacity-80">
-              {exp.company} <span className="w-1 h-1 rounded-full bg-blue-500/50" /> {exp.duration}
+            <div className="flex items-center gap-2 text-slate-400 font-semibold text-xs tracking-wide">
+              {exp.company} <span className="w-1 h-1 rounded-full bg-[#2EE6D6]/50" /> {exp.duration}
             </div>
           </div>
-          <div className={`p-3 rounded-2xl bg-white/5 border border-white/10 transition-all duration-500 ${isActive ? "rotate-90 text-blue-400 border-blue-400/30" : "group-hover:text-white"}`}>
-            <FiChevronRight size={24} />
+          <div className={`p-2 rounded-lg bg-white/5 border border-white/10 transition-all ${isActive ? "rotate-90 text-[#2EE6D6] border-[#2EE6D6]/30" : ""}`}>
+            <FiChevronRight size={16} />
           </div>
         </div>
 
-        {/* Content Section */}
         <AnimatePresence mode="wait">
           {isActive ? (
             <motion.div
@@ -69,30 +60,28 @@ function ExperienceCard({ exp, index, isActive, onClick }) {
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden"
             >
-              <div className="pt-8 border-t border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-10">
-                <div className="lg:col-span-12 space-y-4">
-                   <h4 className="text-[0.6rem] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">Key Contributions</h4>
-                   <ul className="space-y-4">
+              <div className="pt-4 border-t border-white/5 space-y-3">
+                   <h4 className="text-[0.55rem] font-semibold uppercase tracking-[0.16em] text-slate-500">Key contributions</h4>
+                   <ul className="space-y-2">
                      {exp.highlights.map((h, i) => (
                        <motion.li
                          key={i}
-                         initial={{ opacity: 0, x: -10 }}
+                         initial={{ opacity: 0, x: -6 }}
                          animate={{ opacity: 1, x: 0 }}
-                         transition={{ delay: i * 0.1 }}
-                         className="flex items-start gap-4 text-slate-400 leading-relaxed text-sm"
+                         transition={{ delay: i * 0.04 }}
+                         className="flex items-start gap-2.5 text-slate-400 leading-relaxed text-xs"
                        >
-                         <div className="mt-2.5 w-1.5 h-1.5 rounded-full bg-blue-500/40 shrink-0" />
+                         <div className="mt-1.5 w-1 h-1 rounded-full bg-[#2EE6D6]/50 shrink-0" />
                          <span>{h}</span>
                        </motion.li>
                      ))}
                    </ul>
-                </div>
 
-                <div className="lg:col-span-12 flex flex-wrap gap-2 pt-6">
+                <div className="flex flex-wrap gap-1.5 pt-2">
                   {exp.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-500 text-[0.65rem] font-black uppercase tracking-widest hover:text-blue-400 hover:border-blue-400/20 transition-all"
+                      className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 text-slate-500 text-[0.6rem] font-semibold uppercase tracking-wide"
                     >
                       {t}
                     </span>
@@ -101,9 +90,9 @@ function ExperienceCard({ exp, index, isActive, onClick }) {
               </div>
             </motion.div>
           ) : (
-            <div className="flex flex-wrap gap-8 text-[0.65rem] font-black uppercase tracking-[0.2em] text-slate-600">
-               <span className="flex items-center gap-2"><FiCalendar className="text-blue-500/40" /> {exp.period}</span>
-               <span className="flex items-center gap-2"><FiMapPin className="text-blue-500/40" /> {exp.location}</span>
+            <div className="flex flex-wrap gap-4 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-slate-600 mt-2">
+               <span className="flex items-center gap-1.5"><FiCalendar className="text-[#2EE6D6]/40" size={12} /> {exp.period}</span>
+               <span className="flex items-center gap-1.5"><FiMapPin className="text-[#2EE6D6]/40" size={12} /> {exp.location}</span>
             </div>
           )}
         </AnimatePresence>
@@ -117,29 +106,26 @@ export default function Experience() {
   const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true });
 
   return (
-    <section id="experience" className="py-32 scroll-mt-32 relative bg-[#030712] overflow-hidden">
-       {/* Background Accent */}
-       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="experience" className="section-shell scroll-mt-24 relative bg-[#0B0F14] overflow-hidden">
+      <div className="absolute top-0 right-0 w-[280px] h-[280px] bg-[#2EE6D6]/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="flex flex-col gap-20"
+          className="flex flex-col gap-8"
         >
-          {/* Header */}
-          <motion.div variants={itemVariants} className="max-w-4xl">
+          <motion.div variants={itemVariants} className="max-w-2xl">
             <span className="section-tag">Career History</span>
-            <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-none">
-              Where I've Been <br/>
-              <span className="gradient-text">Building the Future</span>
+            <h2 className="heading-section text-white mb-3">
+              Where I've been{' '}
+              <span className="gradient-text">building</span>
             </h2>
           </motion.div>
 
-          {/* Timeline */}
-          <div className="flex flex-col gap-6 relative">
+          <div className="flex flex-col gap-3 relative">
             {experiences.map((exp, i) => (
               <ExperienceCard
                 key={exp.id}
