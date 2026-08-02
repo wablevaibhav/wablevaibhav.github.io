@@ -87,7 +87,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#030712] pt-48 pb-32"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#030712] pt-48 pb-24"
     >
       <canvas
         ref={canvasRef}
@@ -109,7 +109,7 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
           </span>
           <span className="text-[0.6rem] font-black uppercase tracking-[0.25em] text-white/60">
-            Available for Opportunities
+            {personalInfo.availability || "Open to freelance & contract work"}
           </span>
         </motion.div>
 
@@ -151,15 +151,15 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="max-w-2xl text-base md:text-lg text-slate-500 leading-relaxed mb-12"
         >
-          Software Engineer specializing in{" "}
-          <span className="text-white font-bold">
-            Flutter, Node.js, and AI Architecture
-          </span>
-          . Leading mobile engineering efforts at{" "}
+          Software Engineer at{" "}
           <span className="text-blue-400 underline decoration-blue-400/20 underline-offset-8">
             CentraLogic
           </span>
-          .
+          , and available for freelance{" "}
+          <span className="text-white font-bold">
+            Flutter, React Native, and web
+          </span>{" "}
+          delivery.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -167,25 +167,35 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center gap-6 mb-20"
+          className="flex flex-col items-center gap-6 mb-20"
         >
-          <button
-            className="btn-primary"
-            onClick={() =>
-              document
-                .getElementById("contact")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            <FiSend /> Let's Talk
-          </button>
+          <div className="flex flex-col sm:flex-row items-center gap-6">
+            <button
+              className="btn-primary"
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  .scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              <FiSend /> Let's Talk
+            </button>
+            <a
+              href={personalInfo.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-outline"
+            >
+              View Resume ↗
+            </a>
+          </div>
           <a
-            href="https://drive.google.com/file/d/1G5uB7ISBS2VRscJ2eWWXBAxMFwdl2rVO/view?usp=sharing"
+            href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-outline"
+            className="text-[0.65rem] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-blue-400 transition-colors"
           >
-            View Resume ↗
+            Connect on LinkedIn ↗
           </a>
         </motion.div>
 
@@ -206,32 +216,6 @@ export default function Hero() {
             >
               {item.icon}
             </a>
-          ))}
-        </motion.div>
-      </div>
-
-      {/* Hero Stats Card - Repositioned for no overlap */}
-      <div className="absolute bottom-12 left-0 right-0 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-          {[
-            { label: "Years Exp.", value: "2+" },
-            { label: "Apps Shipped", value: "10+" },
-            { label: "Tech Stacks", value: "5+" },
-            { label: "Problems Solved", value: "∞" },
-          ].map((stat, i) => (
-            <div key={i} className="glass-card p-6 rounded-3xl group text-left">
-              <h4 className="text-2xl md:text-3xl font-black text-white group-hover:text-blue-400 transition-colors uppercase">
-                {stat.value}
-              </h4>
-              <p className="text-[0.6rem] font-bold uppercase tracking-widest text-slate-500 mt-1">
-                {stat.label}
-              </p>
-            </div>
           ))}
         </motion.div>
       </div>
