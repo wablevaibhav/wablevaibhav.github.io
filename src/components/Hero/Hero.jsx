@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { personalInfo } from "../../data/portfolioData";
@@ -17,174 +16,97 @@ const socialLinks = [
   { href: `mailto:${personalInfo.email}`, icon: <FiMail />, label: "Email" },
 ];
 
-const taglineSequence = personalInfo.taglines.flatMap((t) => [t, 2000]).flat();
+const taglineSequence = personalInfo.taglines.flatMap((t) => [t, 2000]);
 
 export default function Hero() {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-    let animId;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener("resize", resize);
-    resize();
-
-    class Particle {
-      constructor() {
-        this.reset();
-      }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 1.5 + 0.5;
-        this.speedX = Math.random() * 0.4 - 0.2;
-        this.speedY = Math.random() * 0.4 - 0.2;
-        this.opacity = Math.random() * 0.5 + 0.1;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (
-          this.x < 0 ||
-          this.x > canvas.width ||
-          this.y < 0 ||
-          this.y > canvas.height
-        )
-          this.reset();
-      }
-      draw() {
-        ctx.fillStyle = `rgba(96, 165, 250, ${this.opacity})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < 80; i++) particles.push(new Particle());
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
-      });
-      animId = requestAnimationFrame(animate);
-    };
-    animate();
-    return () => {
-      cancelAnimationFrame(animId);
-      window.removeEventListener("resize", resize);
-    };
-  }, []);
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0B0F14] pt-28 md:pt-32 pb-16"
+      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-[#0B0F14] px-5 pt-24 pb-14 md:pt-28 md:pb-16"
     >
-      <canvas
-        ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-0"
-      />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(46,230,214,0.08),transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(122,143,166,0.06),transparent_45%)] pointer-events-none" />
 
-      {/* Modern Background Accents */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.03),transparent_70%)]" />
-
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center text-center">
-        {/* Top Status Badge */}
+      <div className="relative z-10 w-full max-w-3xl mx-auto flex flex-col items-center text-center">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          className="px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md mb-5 flex items-center gap-2.5"
+          className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 mb-4 flex items-center gap-2"
         >
           <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
           </span>
-          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/60">
+          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white/60">
             {personalInfo.availability || "Open to freelance & contract work"}
           </span>
         </motion.div>
 
-        {/* Hello Text */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-[#2EE6D6] font-mono text-[0.7rem] tracking-[0.28em] uppercase mb-3"
+          transition={{ delay: 0.15 }}
+          className="text-[#2EE6D6] font-mono text-[0.65rem] tracking-[0.22em] uppercase mb-2"
         >
           Hello World, I'm
         </motion.p>
 
-        {/* Main Name */}
         <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ type: "spring", damping: 20, stiffness: 100 }}
-          className="heading-hero text-white mb-5"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="heading-hero text-white mb-4"
         >
           Vaibhav <span className="gradient-text">Wable</span>
         </motion.h1>
 
-        {/* Dynamic Tagline */}
-        <div className="h-8 md:h-9 mb-6">
+        <div className="h-7 md:h-8 mb-5">
           <TypeAnimation
             sequence={taglineSequence}
             wrapper="h2"
             speed={50}
-            className="text-sm md:text-lg font-medium text-[var(--color-muted)] tracking-tight"
+            className="text-sm md:text-base font-medium text-[var(--color-muted)] tracking-tight"
             repeat={Infinity}
           />
         </div>
 
-        {/* Integrated Description */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="max-w-xl text-sm md:text-base text-[var(--color-muted)] leading-relaxed mb-8"
+          transition={{ delay: 0.3 }}
+          className="max-w-md text-sm text-[var(--color-muted)] leading-relaxed mb-7 px-1"
         >
           Software Engineer at{" "}
-          <span className="text-[#2EE6D6] underline decoration-[#2EE6D6]/25 underline-offset-4">
-            CentraLogic
-          </span>
-          , and available for freelance{" "}
+          <span className="text-[#2EE6D6]">CentraLogic</span>
+          , available for freelance{" "}
           <span className="text-white font-semibold">
             Flutter, React Native, and web
           </span>{" "}
           delivery.
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex flex-col items-center gap-4 mb-12"
+          transition={{ delay: 0.4 }}
+          className="flex flex-col items-center gap-3 w-full sm:w-auto mb-8"
         >
-          <div className="flex flex-col sm:flex-row items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
             <button
-              className="btn-primary"
+              className="btn-primary justify-center w-full sm:w-auto"
               onClick={() =>
                 document
                   .getElementById("contact")
-                  .scrollIntoView({ behavior: "smooth" })
+                  ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              <FiSend /> Let's Talk
+              <FiSend size={14} /> Let's Talk
             </button>
             <a
               href={personalInfo.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-outline"
+              className="btn-outline justify-center w-full sm:w-auto"
             >
               View Resume ↗
             </a>
@@ -193,26 +115,26 @@ export default function Hero() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-slate-500 hover:text-blue-400 transition-colors"
+            className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-slate-500 hover:text-[#2EE6D6] transition-colors"
           >
             Connect on LinkedIn ↗
           </a>
         </motion.div>
 
-        {/* Social Links Badge */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="flex items-center gap-3 p-2 rounded-2xl bg-white/[0.02] border border-white/5 backdrop-blur-sm"
+          transition={{ delay: 0.5 }}
+          className="flex items-center gap-2 p-1.5 rounded-xl bg-white/[0.02] border border-white/5"
         >
-          {socialLinks.map((item, idx) => (
+          {socialLinks.map((item) => (
             <a
-              key={idx}
+              key={item.label}
               href={item.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white/5 hover:text-blue-400 transition-all text-slate-500"
+              aria-label={item.label}
+              className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/5 hover:text-[#2EE6D6] transition-all text-slate-500"
             >
               {item.icon}
             </a>

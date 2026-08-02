@@ -25,45 +25,6 @@ I also take freelance and contract work — Flutter / React Native apps, web app
     "https://drive.google.com/file/d/1FIqbV_ZF5GcEDOka77lyu0xBVvovN-yH/view?usp=sharing",
 };
 
-export const dualPath = {
-  fullTime: {
-    id: "full-time",
-    eyebrow: "Full-time",
-    title: "CentraLogic",
-    subtitle: "Software Engineer",
-    period: "Jan 2024 – Present",
-    summary:
-      "Leading Flutter & React Native production apps, store releases, and Node.js / AWS / Firebase integrations.",
-    highlights: [
-      "Ship cross-platform apps to Android & iOS with CI/CD",
-      "Reusable UI systems and Clean Architecture / BLoC patterns",
-      "PR reviews, mentoring, and team leadership",
-      "AI-assisted workflows with Cursor, Claude, and Copilot",
-    ],
-    tech: ["Flutter", "React Native", "Next.js", "Node.js", "AWS", "Firebase"],
-    accent: "#60a5fa",
-    cta: { label: "View experience", href: "#experience" },
-  },
-  freelance: {
-    id: "freelance",
-    eyebrow: "Freelance",
-    title: "Open for work",
-    subtitle: "Mobile Application Developer",
-    period: "Active · Freelanced 2021–2023",
-    summary:
-      "End-to-end client delivery — requirements, UI, APIs, store releases, and post-launch support.",
-    highlights: [
-      "Flutter / React Native apps for Android + iOS",
-      "Feature work, bug fixes, performance, and store releases",
-      "Firebase / REST integrations and Node.js backends",
-      "Short-term contracts or ongoing product collaboration",
-    ],
-    tech: ["Flutter", "React Native", "Firebase", "Node.js", "CI/CD"],
-    accent: "#2dd4bf",
-    cta: { label: "Let's talk", href: "#contact" },
-  },
-};
-
 export const skills = {
   languages: [
     { name: "Dart / Flutter", level: 95, icon: "🎯", color: "#54C5F8" },

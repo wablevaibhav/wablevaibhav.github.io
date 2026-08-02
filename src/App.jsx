@@ -37,7 +37,7 @@ function SplashScreen({ onDone }) {
             className="h-full bg-gradient-to-r from-[#2EE6D6] to-[#1AA89C]"
             initial={{ width: 0 }}
             animate={{ width: '100%' }}
-            transition={{ duration: 1.4, ease: 'easeInOut' }}
+            transition={{ duration: 0.9, ease: 'easeInOut' }}
             onAnimationComplete={onDone}
           />
         </div>
@@ -60,12 +60,12 @@ function ScrollTopBtn() {
     <AnimatePresence>
       {visible && (
         <motion.button
-          className="fixed bottom-8 right-8 z-[90] w-14 h-14 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white flex items-center justify-center shadow-2xl hover:bg-white/10 hover:border-blue-500/30 transition-all font-bold text-xl"
+          className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[90] w-11 h-11 md:w-12 md:h-12 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white flex items-center justify-center shadow-xl hover:bg-white/10 hover:border-[#2EE6D6]/30 transition-all text-lg"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           initial={{ opacity: 0, scale: 0.6, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.6, y: 20 }}
-          whileHover={{ scale: 1.1 }}
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           ↑
@@ -88,7 +88,7 @@ export default function App() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
         >
           <Navbar />
           <main>
