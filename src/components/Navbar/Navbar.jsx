@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { personalInfo } from "../../data/portfolioData";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -95,7 +96,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="flex items-center gap-4">
           <a
-            href="https://drive.google.com/file/d/1G5uB7ISBS2VRscJ2eWWXBAxMFwdl2rVO/view?usp=sharing"
+            href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center justify-center px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white font-black text-[0.6rem] uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95"

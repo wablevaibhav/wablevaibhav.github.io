@@ -27,10 +27,10 @@ const socialCards = [
   {
     icon: <FiInstagram />,
     label: 'Instagram',
-    handle: '@_vaibhav.wable',
+    handle: '@thevaibhavbuilds',
     href: personalInfo.instagram,
     color: '#f472b6',
-    desc: 'Life & Pixels',
+    desc: '@thevaibhavbuilds',
   },
 ];
 

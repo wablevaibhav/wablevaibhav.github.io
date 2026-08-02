@@ -18,10 +18,10 @@ With a proven track record of improving application performance by ~20% and mana
   email: "vaibhavswable@gmail.com",
   linkedin: "https://www.linkedin.com/in/vaibhavwable/",
   github: "https://github.com/wablevaibhav",
-  instagram: "https://www.instagram.com/_vaibhav.wable/",
+  instagram: "https://www.instagram.com/thevaibhavbuilds",
   portfolio: "https://wablevaibhav.github.io",
   resumeUrl:
-    "https://drive.google.com/file/d/1G5uB7ISBS2VRscJ2eWWXBAxMFwdl2rVO/view?usp=sharing",
+    "https://drive.google.com/file/d/1FIqbV_ZF5GcEDOka77lyu0xBVvovN-yH/view?usp=sharing",
 };
 
 export const skills = {

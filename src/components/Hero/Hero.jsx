@@ -180,7 +180,7 @@ export default function Hero() {
             <FiSend /> Let's Talk
           </button>
           <a
-            href="https://drive.google.com/file/d/1G5uB7ISBS2VRscJ2eWWXBAxMFwdl2rVO/view?usp=sharing"
+            href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"
