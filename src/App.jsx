@@ -13,7 +13,7 @@ import Footer from './components/Footer/Footer';
 function SplashScreen({ onDone }) {
   return (
     <motion.div
-      className="fixed inset-0 z-[200] bg-[#080b18] flex items-center justify-center p-8"
+      className="fixed inset-0 z-[200] bg-[#0B0F14] flex items-center justify-center p-8"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.6, ease: 'easeInOut' }}
@@ -34,7 +34,7 @@ function SplashScreen({ onDone }) {
         {/* Loading bar */}
         <div className="w-48 h-1 bg-white/5 rounded-full overflow-hidden mt-6">
           <motion.div
-            className="h-full bg-gradient-to-r from-blue-600 to-indigo-600"
+            className="h-full bg-gradient-to-r from-[#2EE6D6] to-[#1AA89C]"
             initial={{ width: 0 }}
             animate={{ width: '100%' }}
             transition={{ duration: 1.4, ease: 'easeInOut' }}
@@ -79,7 +79,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[#080b18] text-slate-300 antialiased overflow-x-hidden selection:bg-blue-500/30 selection:text-white">
+    <div className="min-h-screen bg-[#0B0F14] text-[#E8EEF4] antialiased overflow-x-hidden selection:bg-cyan-400/30 selection:text-white">
       <AnimatePresence mode="wait">
         {loading && <SplashScreen key="splash" onDone={() => setLoading(false)} />}
       </AnimatePresence>
