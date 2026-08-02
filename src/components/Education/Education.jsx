@@ -44,12 +44,12 @@ export default function Education() {
                     className="surface-card p-4 rounded-2xl group"
                   >
                     <div className="flex gap-3 items-start">
-                       <div className="text-base p-2.5 rounded-xl bg-white/5 text-[#2EE6D6] shrink-0">
+                       <div className="text-base p-2.5 rounded-xl bg-white/5 text-[#3B82F6] shrink-0">
                           {edu.icon}
                        </div>
                        <div className="min-w-0">
                           <span className="text-[0.55rem] font-semibold uppercase tracking-[0.14em] text-slate-500 mb-1 block">{edu.year}</span>
-                          <h4 className="heading-card text-white group-hover:text-[#2EE6D6] transition-colors mb-0.5">{edu.degree}</h4>
+                          <h4 className="heading-card text-white group-hover:text-[#3B82F6] transition-colors mb-0.5">{edu.degree}</h4>
                           <p className="text-slate-400 font-medium text-xs">{edu.institution}</p>
                           <p className="mt-1.5 text-[0.6rem] font-semibold text-slate-600 uppercase tracking-wide">{edu.location}</p>
                        </div>
@@ -72,7 +72,7 @@ export default function Education() {
                       {cert.icon}
                     </div>
                     <div className="min-w-0">
-                      <h4 className="text-xs font-semibold text-white tracking-wide group-hover:text-[#2EE6D6] transition-colors mb-0.5">{cert.title}</h4>
+                      <h4 className="text-xs font-semibold text-white tracking-wide group-hover:text-[#3B82F6] transition-colors mb-0.5">{cert.title}</h4>
                       <p className="text-[0.55rem] text-slate-500 font-semibold uppercase tracking-wider">{cert.issuer}</p>
                     </div>
                   </motion.div>

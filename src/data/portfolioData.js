@@ -59,7 +59,7 @@ export const skills = {
     {
       category: "Cloud & Infrastructure",
       icon: "⚡",
-      color: "#2dd4bf",
+      color: "#3b82f6",
       skills: ["AWS", "Azure", "Firebase", "CI/CD Pipelines"],
     },
     {
@@ -127,7 +127,7 @@ export const experiences = [
     duration: "2+ years",
     type: "Freelance",
     location: "Remote / Pune, India",
-    color: "#2dd4bf",
+    color: "#3b82f6",
     highlights: [
       "Delivered client apps end-to-end: requirements → UI → APIs → deployment → support.",
       "Built cross-platform mobile experiences with Flutter and native Android where needed.",
@@ -205,7 +205,7 @@ export const projects = [
       "Concept explanation with visuals",
       "Progress analytics",
     ],
-    color: "#34d399",
+    color: "#60a5fa",
     gradient: "linear-gradient(135deg, #0d3a26, #1a3050)",
     emoji: "🤖",
     status: "In Progress",
@@ -290,7 +290,7 @@ export const projects = [
       "User session management",
       "CRUD resume operations",
     ],
-    color: "#10b981",
+    color: "#3b82f6",
     gradient: "linear-gradient(135deg, #0d3a26, #1a3050)",
     emoji: "📄",
     status: "Open Source",

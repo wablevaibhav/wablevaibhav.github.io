@@ -34,7 +34,7 @@ function SplashScreen({ onDone }) {
         {/* Loading bar */}
         <div className="w-48 h-1 bg-white/5 rounded-full overflow-hidden mt-6">
           <motion.div
-            className="h-full bg-gradient-to-r from-[#2EE6D6] to-[#1AA89C]"
+            className="h-full bg-gradient-to-r from-[#3B82F6] to-[#2563EB]"
             initial={{ width: 0 }}
             animate={{ width: '100%' }}
             transition={{ duration: 0.9, ease: 'easeInOut' }}
@@ -60,7 +60,7 @@ function ScrollTopBtn() {
     <AnimatePresence>
       {visible && (
         <motion.button
-          className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[90] w-11 h-11 md:w-12 md:h-12 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white flex items-center justify-center shadow-xl hover:bg-white/10 hover:border-[#2EE6D6]/30 transition-all text-lg"
+          className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-[90] w-11 h-11 md:w-12 md:h-12 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 text-white flex items-center justify-center shadow-xl hover:bg-white/10 hover:border-[#3B82F6]/30 transition-all text-lg"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           initial={{ opacity: 0, scale: 0.6, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -79,7 +79,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[#0B0F14] text-[#E8EEF4] antialiased overflow-x-hidden selection:bg-cyan-400/30 selection:text-white">
+    <div className="min-h-screen bg-[#0B0F14] text-[#E8EEF4] antialiased overflow-x-hidden selection:bg-blue-400/30 selection:text-white">
       <AnimatePresence mode="wait">
         {loading && <SplashScreen key="splash" onDone={() => setLoading(false)} />}
       </AnimatePresence>

@@ -39,7 +39,7 @@ function SkillBar({ skill, inView, delay = 0 }) {
   return (
     <div className="flex flex-col gap-1.5 group">
       <div className="flex justify-between items-center">
-        <span className="flex items-center gap-2 text-white font-semibold text-xs tracking-tight group-hover:text-[#2EE6D6] transition-colors">
+        <span className="flex items-center gap-2 text-white font-semibold text-xs tracking-tight group-hover:text-[#3B82F6] transition-colors">
           <span className="text-sm opacity-70">{languageIcons[skill.name] ?? skill.icon}</span>
           {skill.name}
         </span>

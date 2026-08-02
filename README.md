@@ -7,7 +7,7 @@ Personal portfolio for **Vaibhav Wable**, Software Engineer at CentraLogic (Pune
 ## Stack
 
 - React 19 + Vite 8
-- Tailwind CSS v4 (charcoal / steel / cyan design tokens)
+- Tailwind CSS v4 (charcoal / steel / blue design tokens)
 - Framer Motion
 - react-icons, react-type-animation, react-intersection-observer
 - Typography: **Syne** (display) + **Sora** (body)

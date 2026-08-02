@@ -38,7 +38,7 @@ function ProjectModal({ project, onClose }) {
             {project.emoji}
           </div>
           <div className="min-w-0 flex-1 pr-8">
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#2EE6D6] mb-1.5 block">
+            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#3B82F6] mb-1.5 block">
               {project.category}
             </span>
             <h2 className="heading-card text-white mb-2">{project.title}</h2>
@@ -68,7 +68,7 @@ function ProjectModal({ project, onClose }) {
               <ul className="space-y-1.5">
                 {project.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-slate-400 text-xs leading-relaxed">
-                    <FiChevronRight className="mt-0.5 shrink-0 text-[#2EE6D6]" size={12} />
+                    <FiChevronRight className="mt-0.5 shrink-0 text-[#3B82F6]" size={12} />
                     <span>{f}</span>
                   </li>
                 ))}
@@ -124,8 +124,8 @@ function ProjectCard({ project, onClick }) {
       <div className="relative z-10 p-4 md:p-5 flex flex-col flex-1">
          <div className="mb-3">
             <span className="text-2xl mb-2.5 block">{project.emoji}</span>
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#2EE6D6]/90 mb-1.5 block">{project.category}</span>
-            <h3 className="heading-card text-white mb-1.5 group-hover:text-[#2EE6D6] transition-colors">{project.title}</h3>
+            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]/90 mb-1.5 block">{project.category}</span>
+            <h3 className="heading-card text-white mb-1.5 group-hover:text-[#3B82F6] transition-colors">{project.title}</h3>
             <p className="text-slate-500 text-xs leading-relaxed line-clamp-2">{project.description}</p>
          </div>
 
@@ -135,10 +135,10 @@ function ProjectCard({ project, onClick }) {
                  <span key={t} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[0.55rem] font-semibold text-slate-500 uppercase tracking-wide">{t}</span>
                ))}
                {project.tech.length > 2 && (
-                 <span className="px-2 py-0.5 rounded-md bg-[#2EE6D6]/10 text-[#2EE6D6] text-[0.55rem] font-semibold uppercase tracking-wide">+{project.tech.length - 2}</span>
+                 <span className="px-2 py-0.5 rounded-md bg-[#3B82F6]/10 text-[#3B82F6] text-[0.55rem] font-semibold uppercase tracking-wide">+{project.tech.length - 2}</span>
                )}
             </div>
-            <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-[#2EE6D6] group-hover:text-[#041016] transition-all">
+            <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:bg-[#3B82F6] group-hover:text-white transition-all">
                <FiChevronRight size={14} />
             </div>
          </div>

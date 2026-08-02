@@ -86,7 +86,7 @@ export default function Navbar() {
                 {link.label}
                 {active === link.href && (
                   <motion.span
-                    className="absolute inset-0 bg-[#2EE6D6]/10 rounded-lg -z-10"
+                    className="absolute inset-0 bg-[#3B82F6]/10 rounded-lg -z-10"
                     layoutId="nav-bg"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
@@ -101,7 +101,7 @@ export default function Navbar() {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center justify-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-[0.6rem] uppercase tracking-widest hover:border-[#2EE6D6]/30 transition-all"
+            className="hidden md:flex items-center justify-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-[0.6rem] uppercase tracking-widest hover:border-[#3B82F6]/30 transition-all"
           >
             Resume ↗
           </a>
@@ -140,7 +140,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   className={`text-left text-lg font-semibold tracking-tight py-3 border-b border-white/5 transition-colors ${
-                    active === link.href ? "text-[#2EE6D6]" : "text-white"
+                    active === link.href ? "text-[#3B82F6]" : "text-white"
                   }`}
                   onClick={() => scrollTo(link.href)}
                 >

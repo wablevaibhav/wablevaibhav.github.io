@@ -25,7 +25,7 @@ export default function Footer() {
                   <button
                     key={l}
                     onClick={() => document.getElementById(l.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-slate-500 text-[0.7rem] font-semibold transition-colors hover:text-[#2EE6D6] text-left"
+                    className="text-slate-500 text-[0.7rem] font-semibold transition-colors hover:text-[#3B82F6] text-left"
                   >
                     {l}
                   </button>
@@ -47,7 +47,7 @@ export default function Footer() {
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-xl bg-white/[0.03] border border-white/8 flex items-center justify-center text-sm text-slate-400 hover:text-[#2EE6D6] hover:border-[#2EE6D6]/30 transition-all"
+                    className="w-9 h-9 rounded-xl bg-white/[0.03] border border-white/8 flex items-center justify-center text-sm text-slate-400 hover:text-[#3B82F6] hover:border-[#3B82F6]/30 transition-all"
                   >
                     {s.icon}
                   </a>
@@ -59,7 +59,7 @@ export default function Footer() {
         <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-slate-600">
            <div>© {year} Vaibhav Wable</div>
            <div className="flex items-center gap-1.5 normal-case tracking-normal text-slate-500">
-             Built with <FiHeart className="text-[#2EE6D6]/50" size={11} /> in Pune
+             Built with <FiHeart className="text-[#3B82F6]/50" size={11} /> in Pune
            </div>
         </div>
       </div>

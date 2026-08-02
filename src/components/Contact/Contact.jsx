@@ -13,7 +13,7 @@ const socialCards = [
     label: 'LinkedIn',
     handle: 'linkedin.com/in/vaibhavwable',
     href: personalInfo.linkedin,
-    color: '#2EE6D6',
+    color: '#3B82F6',
     desc: 'Professional network',
   },
   {
@@ -45,7 +45,7 @@ const itemVariants = {
 };
 
 const inputClass =
-  'w-full bg-white/[0.03] border border-white/8 rounded-xl px-3.5 py-2.5 text-white placeholder-slate-600 focus:outline-none focus:border-[#2EE6D6]/35 transition-all text-sm';
+  'w-full bg-white/[0.03] border border-white/8 rounded-xl px-3.5 py-2.5 text-white placeholder-slate-600 focus:outline-none focus:border-[#3B82F6]/35 transition-all text-sm';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -66,7 +66,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section-shell scroll-mt-24 relative bg-[#0B0F14] overflow-hidden">
-      <div className="absolute -bottom-16 -right-16 w-[280px] h-[280px] bg-[#2EE6D6]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-16 -right-16 w-[280px] h-[280px] bg-[#3B82F6]/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <motion.div
@@ -123,13 +123,13 @@ export default function Contact() {
 
             <div className="lg:col-span-5 flex flex-col gap-3">
                <motion.div variants={itemVariants} className="surface-card p-4 rounded-2xl flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-[#2EE6D6] text-base shrink-0">
+                  <div className="w-9 h-9 rounded-xl bg-white/5 flex items-center justify-center text-[#3B82F6] text-base shrink-0">
                     <FiMapPin />
                   </div>
                   <div>
                     <h3 className="text-[0.55rem] font-semibold uppercase tracking-[0.14em] text-slate-500 mb-0.5">Location</h3>
                     <p className="text-sm font-semibold text-white">{personalInfo.location}</p>
-                    <p className="text-[0.55rem] font-semibold text-[#2EE6D6]/70 uppercase tracking-wider mt-0.5">Remote-friendly</p>
+                    <p className="text-[0.55rem] font-semibold text-[#3B82F6]/70 uppercase tracking-wider mt-0.5">Remote-friendly</p>
                   </div>
                </motion.div>
 
@@ -140,25 +140,25 @@ export default function Contact() {
                    href={card.href}
                    target="_blank"
                    rel="noopener noreferrer"
-                   className="surface-card p-3.5 rounded-2xl flex items-center justify-between group hover:border-[#2EE6D6]/25"
+                   className="surface-card p-3.5 rounded-2xl flex items-center justify-between group hover:border-[#3B82F6]/25"
                  >
                     <div className="flex items-center gap-3">
                        <div className="text-base p-2.5 rounded-xl bg-white/5" style={{ color: card.color }}>
                          {card.icon}
                        </div>
                        <div>
-                         <h4 className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-500 group-hover:text-[#2EE6D6] transition-colors">{card.label}</h4>
+                         <h4 className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-500 group-hover:text-[#3B82F6] transition-colors">{card.label}</h4>
                          <p className="text-white font-medium text-xs">{card.desc}</p>
                        </div>
                     </div>
-                    <FiArrowUpRight className="text-slate-600 group-hover:text-[#2EE6D6]" size={16} />
+                    <FiArrowUpRight className="text-slate-600 group-hover:text-[#3B82F6]" size={16} />
                  </motion.a>
                ))}
 
                <motion.a
                  variants={itemVariants}
                  href={`mailto:${personalInfo.email}`}
-                 className="p-3.5 rounded-2xl bg-white/[0.02] border border-dashed border-white/10 flex items-center justify-center gap-2 text-slate-500 hover:text-white hover:border-[#2EE6D6]/25 transition-all text-xs"
+                 className="p-3.5 rounded-2xl bg-white/[0.02] border border-dashed border-white/10 flex items-center justify-center gap-2 text-slate-500 hover:text-white hover:border-[#3B82F6]/25 transition-all text-xs"
                >
                  <FiMail size={14} /> {personalInfo.email}
                </motion.a>

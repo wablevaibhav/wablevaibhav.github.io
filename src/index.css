@@ -4,7 +4,7 @@
   --color-bg: #0b0f14;
   --color-surface: #121820;
   --color-steel: #7a8fa6;
-  --color-cyan: #2ee6d6;
+  --color-accent: #3b82f6;
   --color-text: #e8eef4;
   --color-muted: #9aa8b8;
   --color-border: rgba(122, 143, 166, 0.22);
@@ -16,7 +16,7 @@
 @theme {
   --font-display: "Syne", system-ui, sans-serif;
   --font-sans: "Sora", system-ui, sans-serif;
-  --color-brand-cyan: #2ee6d6;
+  --color-brand-blue: #3b82f6;
   --color-brand-steel: #7a8fa6;
 }
 
@@ -39,9 +39,9 @@ body {
 .heading-hero {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.75rem, 4vw, 2.75rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
 }
 
 .heading-section {
@@ -105,13 +105,13 @@ body::before {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-family: var(--font-body);
-  color: var(--color-cyan);
-  background: color-mix(in srgb, var(--color-cyan) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-cyan) 28%, transparent);
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 28%, transparent);
 }
 
 .gradient-text {
-  background: linear-gradient(120deg, #e8eef4 0%, #2ee6d6 55%, #7a8fa6 100%);
+  background: linear-gradient(120deg, #e8eef4 0%, #3b82f6 55%, #7a8fa6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -123,14 +123,14 @@ body::before {
   gap: 0.5rem;
   padding: 0.75rem 1.35rem;
   border-radius: 0.85rem;
-  background: linear-gradient(135deg, #2ee6d6, #1aa89c);
-  color: #041016;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
   font-weight: 600;
   font-size: 0.7rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 12px 40px -16px rgba(46, 230, 214, 0.55);
+  box-shadow: 0 12px 40px -16px rgba(59, 130, 246, 0.55);
 }
 
 .btn-primary:hover {
@@ -154,7 +154,7 @@ body::before {
 
 .btn-outline:hover {
   background: rgba(232, 238, 244, 0.04);
-  border-color: color-mix(in srgb, var(--color-cyan) 40%, transparent);
+  border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
 }
 
 ::-webkit-scrollbar { width: 8px; }

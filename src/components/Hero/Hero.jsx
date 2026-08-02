@@ -24,7 +24,7 @@ export default function Hero() {
       id="home"
       className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-[#0B0F14] px-5 pt-24 pb-14 md:pt-28 md:pb-16"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(46,230,214,0.08),transparent_55%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_20%,rgba(59,130,246,0.08),transparent_55%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(122,143,166,0.06),transparent_45%)] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-3xl mx-auto flex flex-col items-center text-center">
@@ -34,10 +34,10 @@ export default function Hero() {
           className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 mb-4 flex items-center gap-2"
         >
           <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500" />
           </span>
-          <span className="text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-white/60">
+          <span className="text-[0.7rem] md:text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
             {personalInfo.availability || "Open to freelance & contract work"}
           </span>
         </motion.div>
@@ -46,7 +46,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15 }}
-          className="text-[#2EE6D6] font-mono text-[0.65rem] tracking-[0.22em] uppercase mb-2"
+          className="text-[#3B82F6] font-mono text-xs md:text-sm tracking-[0.24em] uppercase mb-3"
         >
           Hello World, I'm
         </motion.p>
@@ -55,17 +55,17 @@ export default function Hero() {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="heading-hero text-white mb-4"
+          className="heading-hero text-white mb-5"
         >
           Vaibhav <span className="gradient-text">Wable</span>
         </motion.h1>
 
-        <div className="h-7 md:h-8 mb-5">
+        <div className="h-9 md:h-11 mb-6">
           <TypeAnimation
             sequence={taglineSequence}
             wrapper="h2"
             speed={50}
-            className="text-sm md:text-base font-medium text-[var(--color-muted)] tracking-tight"
+            className="text-lg md:text-2xl font-medium text-[var(--color-muted)] tracking-tight"
             repeat={Infinity}
           />
         </div>
@@ -74,10 +74,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="max-w-md text-sm text-[var(--color-muted)] leading-relaxed mb-7 px-1"
+          className="max-w-xl text-base md:text-lg text-[var(--color-muted)] leading-relaxed mb-8 px-1"
         >
           Software Engineer at{" "}
-          <span className="text-[#2EE6D6]">CentraLogic</span>
+          <span className="text-[#3B82F6]">CentraLogic</span>
           , available for freelance{" "}
           <span className="text-white font-semibold">
             Flutter, React Native, and web
@@ -115,7 +115,7 @@ export default function Hero() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-slate-500 hover:text-[#2EE6D6] transition-colors"
+            className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-slate-500 hover:text-[#3B82F6] transition-colors"
           >
             Connect on LinkedIn ↗
           </a>
@@ -134,7 +134,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={item.label}
-              className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/5 hover:text-[#2EE6D6] transition-all text-slate-500"
+              className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/5 hover:text-[#3B82F6] transition-all text-slate-500"
             >
               {item.icon}
             </a>
