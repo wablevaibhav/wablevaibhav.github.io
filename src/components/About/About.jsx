@@ -15,14 +15,14 @@ const traits = [
   },
   {
     icon: <FiLayers />,
-    title: 'Full-Stack Thinking',
-    desc: 'Connecting every layer: from fluid Flutter UIs to optimized Node.js APIs and PostgreSQL schemas.',
+    title: 'Full-Stack Delivery',
+    desc: 'Leading Flutter development at CentraLogic while taking on freelance builds—from UI to Node.js APIs and store delivery.',
     color: '#818cf8',
   },
   {
     icon: <FiCpu />,
-    title: 'AI-First Mindset',
-    desc: 'Pioneering AI-agent orchestration for next-gen mobile experiences.',
+    title: 'AI-Accelerated Workflow',
+    desc: 'Using Cursor and Claude to move faster on features, migrations, and code quality across every project.',
     color: '#2dd4bf',
   },
 ];
@@ -67,17 +67,9 @@ export default function About() {
             <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col gap-8">
               <div className="glass-card p-10 md:p-14 rounded-[3rem]">
                 <div className="space-y-8 text-slate-400 text-lg md:text-xl leading-relaxed">
-                  <p>
-                    I'm a Software Engineer with <span className="text-white font-bold">2+ years of experience</span> architecting 
-                    high-performance mobile and backend systems. Currently at <span className="text-blue-400 font-bold">CentraLogic</span>, 
-                    I lead Flutter development for production-grade Android & iOS applications.
-                  </p>
-                  <p>
-                    My philosophy is rooted in <span className="text-white font-bold italic underline decoration-blue-500/30 underline-offset-8">Architecture-First Design</span>. 
-                    I believe in deep problem decomposition before a single line of code is written. 
-                    Beyond mobile, I'm building AI-driven backends with <span className="text-white font-bold">Node.js</span> and 
-                    orchestrating <span className="text-brand-secondary font-bold">AI Agents</span> to redefine mobile interaction.
-                  </p>
+                  {personalInfo.about.split('\n\n').map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
                 </div>
 
                 {/* Contact Pills */}
@@ -118,7 +110,7 @@ export default function About() {
               {/* Stats Card */}
               <motion.div variants={itemVariants} className="mt-4 p-10 rounded-[3rem] bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-blue-500/30 flex justify-around items-center">
                  <div className="text-center">
-                    <span className="block text-4xl font-black text-white mb-1 tracking-tighter">2+</span>
+                    <span className="block text-4xl font-black text-white mb-1 tracking-tighter">3+</span>
                     <span className="text-[0.6rem] font-black uppercase tracking-widest text-blue-400/60">Years Exp.</span>
                  </div>
                  <div className="w-px h-12 bg-white/5" />

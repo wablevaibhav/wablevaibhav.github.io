@@ -2,6 +2,30 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { skills } from '../../data/portfolioData';
+import {
+  SiFlutter, SiReact, SiTypescript, SiKotlin, SiNodedotjs, SiCplusplus, SiHtml5,
+} from 'react-icons/si';
+import { FiSmartphone, FiServer, FiCloud, FiTool, FiCpu } from 'react-icons/fi';
+
+// Map data-driven emoji labels to react-icons so the section reads cleaner
+// than an emoji-heavy list, without changing the underlying skills data.
+const languageIcons = {
+  'Dart / Flutter': <SiFlutter />,
+  'React Native': <SiReact />,
+  'TypeScript / JS': <SiTypescript />,
+  'Kotlin / Java': <SiKotlin />,
+  'Node.js': <SiNodedotjs />,
+  'C / C++': <SiCplusplus />,
+  'HTML / CSS': <SiHtml5 />,
+};
+
+const categoryIcons = {
+  'Frontend & Mobile': <FiSmartphone />,
+  'Backend Architecture': <FiServer />,
+  'Cloud & Infrastructure': <FiCloud />,
+  'DevOps & Tools': <FiTool />,
+  'AI-Assisted Dev': <FiCpu />,
+};
 
 const containerVariants = {
   hidden: {},
@@ -18,7 +42,7 @@ function SkillBar({ skill, inView, delay = 0 }) {
     <div className="flex flex-col gap-3 group">
       <div className="flex justify-between items-center">
         <span className="flex items-center gap-3 text-white font-bold text-sm tracking-tight group-hover:text-blue-400 transition-colors">
-          <span className="text-xl opacity-60 group-hover:opacity-100 transition-all">{skill.icon}</span>
+          <span className="text-xl opacity-60 group-hover:opacity-100 transition-all">{languageIcons[skill.name] ?? skill.icon}</span>
           {skill.name}
         </span>
         <span className="text-slate-600 font-mono text-[0.65rem] font-black">{skill.level}%</span>
@@ -87,7 +111,7 @@ export default function Skills() {
                          : "text-slate-600 hover:text-slate-400"
                        }`}
                    >
-                     <span className="text-lg md:text-xl" style={{ color: activeTab === i ? e.color : 'inherit' }}>{e.icon}</span>
+                     <span className="text-lg md:text-xl" style={{ color: activeTab === i ? e.color : 'inherit' }}>{categoryIcons[e.category] ?? e.icon}</span>
                      <span className="hidden md:inline whitespace-nowrap">{e.category.split(' ')[0]}</span>
                    </button>
                  ))}
@@ -103,7 +127,7 @@ export default function Skills() {
                  >
                    <div className="flex items-center gap-6 mb-12">
                      <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-3xl transition-transform duration-500 group-hover:scale-110" style={{ color: skills.expertise[activeTab].color }}>
-                       {skills.expertise[activeTab].icon}
+                       {categoryIcons[skills.expertise[activeTab].category] ?? skills.expertise[activeTab].icon}
                      </div>
                      <div>
                        <h4 className="text-3xl font-black text-white tracking-tight uppercase" style={{ color: skills.expertise[activeTab].color }}>{skills.expertise[activeTab].category}</h4>

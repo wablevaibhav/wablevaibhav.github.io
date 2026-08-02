@@ -78,12 +78,11 @@ export default function Contact() {
           <motion.div variants={itemVariants} className="max-w-4xl">
             <span className="section-tag">Contact Hub</span>
             <h2 className="text-4xl md:text-7xl font-black text-white tracking-tighter mb-8 leading-none">
-              Let's Architect <br/>
-              <span className="gradient-text">New Possibilities</span>
+              Let's Build <br/>
+              <span className="gradient-text">Something</span>
             </h2>
             <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-2xl font-medium">
-              Have a visionary project in mind or want to discuss the future of AI engineering? 
-              Drop a message and let's start the dialogue.
+              Open to freelance and contract work — Flutter, React Native, web apps, and end-to-end store delivery.
             </p>
           </motion.div>
 
