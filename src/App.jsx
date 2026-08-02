@@ -24,12 +24,12 @@ function SplashScreen({ onDone }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="text-6xl font-black flex gap-1 tracking-tighter text-white">
+        <div className="font-display text-3xl md:text-4xl font-bold flex gap-1 tracking-tighter text-white">
           <span className="gradient-text">&lt;</span>
           <span>VW</span>
           <span className="gradient-text">/&gt;</span>
         </div>
-        <p className="text-[0.65rem] font-black uppercase tracking-[0.45em] text-slate-500">Vaibhav Wable</p>
+        <p className="text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-[var(--color-muted)]">Vaibhav Wable</p>
 
         {/* Loading bar */}
         <div className="w-48 h-1 bg-white/5 rounded-full overflow-hidden mt-6">

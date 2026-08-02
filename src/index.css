@@ -22,14 +22,46 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-padding-top: 88px;
+  font-size: 15px;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Readable type scale for Syne/Sora (Syne reads larger than Inter at same px) */
+.heading-hero {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.heading-section {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-card {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+@media (min-width: 768px) {
+  html { font-size: 16px; }
 }
 
 body::before {
@@ -49,18 +81,28 @@ body::before {
 .surface-card {
   background: color-mix(in srgb, var(--color-surface) 92%, transparent);
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-depth);
+  box-shadow: 0 12px 32px -18px rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(16px);
+}
+
+.section-shell {
+  padding-block: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding-block: 4.5rem;
+  }
 }
 
 .section-tag {
   display: inline-block;
-  padding: 0.4rem 1rem;
-  margin-bottom: 1.5rem;
+  padding: 0.3rem 0.75rem;
+  margin-bottom: 0.85rem;
   border-radius: 999px;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-family: var(--font-body);
   color: var(--color-cyan);
@@ -78,14 +120,14 @@ body::before {
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 0.85rem;
   background: linear-gradient(135deg, #2ee6d6, #1aa89c);
   color: #041016;
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 12px 40px -16px rgba(46, 230, 214, 0.55);
@@ -98,14 +140,14 @@ body::before {
 .btn-outline {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  gap: 0.5rem;
+  padding: 0.75rem 1.35rem;
+  border-radius: 0.85rem;
   border: 1px solid var(--color-border);
   color: var(--color-text);
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: background 0.25s ease, border-color 0.25s ease;
 }

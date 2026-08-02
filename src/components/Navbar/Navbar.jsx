@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { personalInfo } from "../../data/portfolioData";
 
 const NAV_LINKS = [
   { href: "#home", label: "Home" },
@@ -59,7 +60,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <button
-          className="group flex items-center gap-1 font-black text-2xl tracking-tighter hover:scale-105 transition-transform"
+          className="group flex items-center gap-1 font-display font-bold text-lg tracking-tight hover:scale-105 transition-transform"
           onClick={() => scrollTo("#home")}
         >
           <span className="gradient-text">&lt;</span>
@@ -72,7 +73,7 @@ export default function Navbar() {
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <button
-                className={`relative px-2 py-1 text-[0.65rem] font-black tracking-[0.2em] uppercase transition-all duration-300 ${
+                className={`relative px-2 py-1 text-[0.65rem] font-semibold tracking-[0.2em] uppercase transition-all duration-300 ${
                   active === link.href
                     ? "text-white"
                     : "text-slate-500 hover:text-slate-300"
@@ -95,10 +96,10 @@ export default function Navbar() {
         {/* CTA */}
         <div className="flex items-center gap-4">
           <a
-            href="https://drive.google.com/file/d/1G5uB7ISBS2VRscJ2eWWXBAxMFwdl2rVO/view?usp=sharing"
+            href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center justify-center px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white font-black text-[0.6rem] uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95"
+            className="hidden md:flex items-center justify-center px-6 py-2 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-[0.6rem] uppercase tracking-widest hover:bg-white/10 transition-all active:scale-95"
           >
             Resume ↗
           </a>
@@ -137,7 +138,7 @@ export default function Navbar() {
             {NAV_LINKS.map((link) => (
               <button
                 key={link.href}
-                className={`text-4xl font-black tracking-tighter uppercase transition-all ${
+                className={`text-2xl font-bold tracking-tight uppercase transition-all ${
                   active === link.href
                     ? "text-white scale-110"
                     : "text-slate-700 hover:text-slate-500"

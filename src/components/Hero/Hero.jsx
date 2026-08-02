@@ -87,7 +87,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#030712] pt-48 pb-24"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0B0F14] pt-28 md:pt-32 pb-16"
     >
       <canvas
         ref={canvasRef}
@@ -102,13 +102,13 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="px-4 py-2 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md mb-8 flex items-center gap-3"
+          className="px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md mb-5 flex items-center gap-2.5"
         >
-          <span className="relative flex h-2 w-2">
+          <span className="relative flex h-1.5 w-1.5">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
           </span>
-          <span className="text-[0.6rem] font-black uppercase tracking-[0.25em] text-white/60">
+          <span className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-white/60">
             {personalInfo.availability || "Open to freelance & contract work"}
           </span>
         </motion.div>
@@ -118,7 +118,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-blue-400 font-mono text-xs tracking-[0.5em] uppercase mb-6"
+          className="text-[#2EE6D6] font-mono text-[0.7rem] tracking-[0.28em] uppercase mb-3"
         >
           Hello World, I'm
         </motion.p>
@@ -128,18 +128,18 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", damping: 20, stiffness: 100 }}
-          className="text-5xl md:text-8xl font-black text-white tracking-tighter mb-8"
+          className="heading-hero text-white mb-5"
         >
           Vaibhav <span className="gradient-text">Wable</span>
         </motion.h1>
 
         {/* Dynamic Tagline */}
-        <div className="h-10 md:h-12 mb-10">
+        <div className="h-8 md:h-9 mb-6">
           <TypeAnimation
             sequence={taglineSequence}
             wrapper="h2"
             speed={50}
-            className="text-lg md:text-3xl font-bold text-slate-400 tracking-tight"
+            className="text-sm md:text-lg font-medium text-[var(--color-muted)] tracking-tight"
             repeat={Infinity}
           />
         </div>
@@ -149,14 +149,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="max-w-2xl text-base md:text-lg text-slate-500 leading-relaxed mb-12"
+          className="max-w-xl text-sm md:text-base text-[var(--color-muted)] leading-relaxed mb-8"
         >
           Software Engineer at{" "}
-          <span className="text-blue-400 underline decoration-blue-400/20 underline-offset-8">
+          <span className="text-[#2EE6D6] underline decoration-[#2EE6D6]/25 underline-offset-4">
             CentraLogic
           </span>
           , and available for freelance{" "}
-          <span className="text-white font-bold">
+          <span className="text-white font-semibold">
             Flutter, React Native, and web
           </span>{" "}
           delivery.
@@ -167,9 +167,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="flex flex-col items-center gap-6 mb-20"
+          className="flex flex-col items-center gap-4 mb-12"
         >
-          <div className="flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3">
             <button
               className="btn-primary"
               onClick={() =>
@@ -193,7 +193,7 @@ export default function Hero() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.65rem] font-black uppercase tracking-[0.25em] text-slate-500 hover:text-blue-400 transition-colors"
+            className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-slate-500 hover:text-blue-400 transition-colors"
           >
             Connect on LinkedIn ↗
           </a>
