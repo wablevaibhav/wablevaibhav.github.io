@@ -6,15 +6,16 @@ export const personalInfo = {
   title: "Software Engineer",
   availability: "Open to freelance & contract work",
   taglines: [
+    "Backend & API Developer",
     "Cross-Platform App Developer",
     "React Native & Flutter Specialist",
     "Next.js Engineer",
     "AI-Assisted Workflow Advocate",
     "Performance Optimization Expert",
   ],
-  about: `Software Engineer with 3+ years of experience building cross-platform mobile and web products. I currently work at CentraLogic, leading Flutter development, shipping Android & iOS apps, and integrating backends with Node.js, AWS, and Firebase.
+  about: `Software Engineer with 3+ years of experience building backend services, REST APIs, and cross-platform mobile & web products. I currently work at CentraLogic, developing secure Node.js APIs on AWS, leading Flutter development, and shipping Android & iOS apps that consume those APIs end-to-end.
 
-I also take freelance and contract work — Flutter / React Native apps, web apps, API integrations, and end-to-end Play Store & App Store delivery. I use AI tools like Cursor and Claude to move faster on features, migrations, and code quality.`,
+I own the full backend lifecycle — authentication, CRUD design, database schema, and validation — demonstrated in production work with Node.js and in TaskFlow, a PHP + MySQL REST API I built with token-based auth and per-user data scoping. I also take freelance and contract work — Flutter / React Native apps, web apps, API integrations, and end-to-end Play Store & App Store delivery. I use AI tools like Cursor and Claude to move faster on features, migrations, and code quality.`,
   location: "Pune, India",
   email: "vaibhavswable@gmail.com",
   linkedin: "https://www.linkedin.com/in/vaibhavwable/",
@@ -22,7 +23,7 @@ I also take freelance and contract work — Flutter / React Native apps, web app
   instagram: "https://www.instagram.com/thevaibhavbuilds",
   portfolio: "https://wablevaibhav.github.io",
   resumeUrl:
-    "https://drive.google.com/file/d/1FIqbV_ZF5GcEDOka77lyu0xBVvovN-yH/view?usp=sharing",
+    "https://drive.google.com/file/d/1dcaNvdKNDh39fw061Og-cTyAl7pvIg40/view?usp=sharing",
 };
 
 export const skills = {
@@ -30,8 +31,9 @@ export const skills = {
     { name: "Dart / Flutter", level: 95, icon: "🎯", color: "#54C5F8" },
     { name: "React Native", level: 90, icon: "⚛️", color: "#61DAFB" },
     { name: "TypeScript / JS", level: 88, icon: "⚡", color: "#3178C6" },
-    { name: "Kotlin / Java", level: 80, icon: "🤖", color: "#7F52FF" },
     { name: "Node.js", level: 85, icon: "🟢", color: "#3C873A" },
+    { name: "PHP", level: 80, icon: "🐘", color: "#777BB4" },
+    { name: "Kotlin / Java", level: 80, icon: "🤖", color: "#7F52FF" },
     { name: "C / C++", level: 75, icon: "⚙️", color: "#555555" },
     { name: "HTML / CSS", level: 90, icon: "🌐", color: "#E34F26" },
   ],
@@ -48,9 +50,9 @@ export const skills = {
       color: "#818cf8",
       skills: [
         "Node.js",
-        "Java",
-        "Kotlin",
-        "Dart",
+        "PHP",
+        "REST API Design",
+        "JWT / HMAC Auth",
         "PostgreSQL",
         "MongoDB",
         "MySQL",
@@ -102,20 +104,21 @@ export const experiences = [
     color: "#60a5fa",
     highlights: [
       "Promoted from Software Engineer Trainee (Jan–Jun 2024) to Software Engineer (Jun 2024 – Present).",
-      "Developed and optimized cross-platform applications using Flutter and React Native, improving performance by ~20%.",
-      "Managed end-to-end deployments across Web, Android, and iOS using CI/CD (GitHub Actions, Codemagic, Jenkins).",
+      "Develop secure backend services and REST APIs using Node.js on AWS (including AWS Lambda), designing endpoints, data models, and integrations that power core product features.",
+      "Developed and optimized cross-platform applications using Flutter and React Native that consume these backend APIs in production, improving performance by ~20%.",
+      "Build CI/CD pipelines with Amplify and CodeMagic that cut deployment time by 20%; introduced AI-assisted workflows (Claude, Cursor, GitHub Copilot) that cut dev time by 30%.",
       "Built modern web applications using Next.js and mobile apps using Expo.",
+      "Manage the App Store and Play Store deployment lifecycle end-to-end and own production issues.",
       "Designed reusable UI components and scalable architecture; led PR reviews and mentored teammates.",
-      "Leveraged AI tools (ChatGPT, GitHub Copilot, Cursor, Claude) to accelerate development and debugging.",
     ],
     tech: [
+      "Node.js",
+      "AWS Lambda",
+      "REST APIs",
       "Flutter",
       "React Native",
       "Next.js",
-      "Expo",
       "CI/CD",
-      "GitHub Actions",
-      "Jenkins",
       "AI Workflows",
     ],
   },
@@ -153,6 +156,70 @@ export const experiences = [
 ];
 
 export const projects = [
+  {
+    id: "taskflow",
+    title: "TaskFlow — PHP REST API",
+    category: "PHP · MySQL · REST API",
+    description:
+      "Task-management REST API built in PHP 8 with PDO, featuring token-based auth (HMAC-signed), full CRUD with per-user scoping, and input validation with proper HTTP status codes.",
+    longDescription:
+      "A backend-first project demonstrating the full REST API lifecycle in PHP: HMAC-signed token authentication, per-user data scoping on every CRUD operation, and structured input validation with correct HTTP status codes throughout. Runs on SQLite for local development and MySQL in production via environment-based config, showing a clean separation between app logic and data layer.",
+    tech: ["PHP 8", "PDO", "MySQL", "SQLite", "REST API", "HMAC Auth"],
+    features: [
+      "HMAC-signed token authentication",
+      "Full CRUD with per-user scoping",
+      "Input validation with proper HTTP status codes",
+      "SQLite for local dev, MySQL in production",
+      "Environment-based config",
+    ],
+    color: "#777BB4",
+    gradient: "linear-gradient(135deg, #241a3a, #1a2040)",
+    emoji: "🗂️",
+    status: "Shipped",
+    links: { github: null, live: null },
+  },
+  {
+    id: "expense-tracker",
+    title: "Expense Tracker — Smart Finance App",
+    category: "Flutter · Generative AI",
+    description:
+      "Personal finance and expense-tracking mobile app with AI-assisted categorization and spending insights.",
+    longDescription:
+      "A Flutter mobile app for personal finance management that uses generative AI to automatically categorize expenses and surface spending insights, reducing manual entry and helping users understand spending patterns at a glance.",
+    tech: ["Flutter", "Generative AI", "Dart", "Mobile UX"],
+    features: [
+      "AI-assisted expense categorization",
+      "Spending insights & trends",
+      "Clean transaction entry flow",
+      "Cross-platform (Android & iOS)",
+    ],
+    color: "#22c55e",
+    gradient: "linear-gradient(135deg, #0d3a1f, #1a2d1a)",
+    emoji: "💰",
+    status: "In Progress",
+    links: { github: null, live: null },
+  },
+  {
+    id: "hrms",
+    title: "HRMS — Human Resource Management System",
+    category: "Flutter · Node.js",
+    description:
+      "HRMS mobile app covering onboarding, attendance, and leave management for small teams.",
+    longDescription:
+      "A Flutter mobile app backed by a Node.js API, built to handle the essentials of small-team HR operations — employee onboarding flows, attendance tracking, and leave request/approval management.",
+    tech: ["Flutter", "Node.js", "REST API", "MongoDB"],
+    features: [
+      "Employee onboarding flow",
+      "Attendance tracking",
+      "Leave request & approval management",
+      "Node.js backend API",
+    ],
+    color: "#f59e0b",
+    gradient: "linear-gradient(135deg, #3a2a0d, #2d1a1a)",
+    emoji: "🧑‍💼",
+    status: "Shipped",
+    links: { github: null, live: null },
+  },
   {
     id: "live-tracking",
     title: "Real-Time Live Tracking System",

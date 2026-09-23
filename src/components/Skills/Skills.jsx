@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { skills } from '../../data/portfolioData';
 import {
-  SiFlutter, SiReact, SiTypescript, SiKotlin, SiNodedotjs, SiCplusplus, SiHtml5,
+  SiFlutter, SiReact, SiTypescript, SiKotlin, SiNodedotjs, SiCplusplus, SiHtml5, SiPhp,
 } from 'react-icons/si';
 import { FiSmartphone, FiServer, FiCloud, FiTool, FiCpu } from 'react-icons/fi';
 
@@ -11,8 +11,9 @@ const languageIcons = {
   'Dart / Flutter': <SiFlutter />,
   'React Native': <SiReact />,
   'TypeScript / JS': <SiTypescript />,
-  'Kotlin / Java': <SiKotlin />,
   'Node.js': <SiNodedotjs />,
+  'PHP': <SiPhp />,
+  'Kotlin / Java': <SiKotlin />,
   'C / C++': <SiCplusplus />,
   'HTML / CSS': <SiHtml5 />,
 };
