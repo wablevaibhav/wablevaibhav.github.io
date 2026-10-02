@@ -16,13 +16,13 @@ const traits = [
   {
     icon: <FiLayers />,
     title: 'Full-Stack Delivery',
-    desc: 'Leading Flutter at CentraLogic while freelancing—from UI to Node.js APIs and store delivery.',
+    desc: 'Leading Flutter & React Native at CentraLogic—from UI to Node.js/Express.js APIs and store delivery.',
     color: '#7A8FA6',
   },
   {
     icon: <FiCpu />,
-    title: 'AI-Accelerated Workflow',
-    desc: 'Using Cursor and Claude to move faster on features, migrations, and code quality.',
+    title: 'AI-Integrated Products',
+    desc: 'Integrating LLM APIs (OpenAI, Claude, Gemini) into product features and using Cursor & Claude Code to move faster.',
     color: '#3B82F6',
   },
 ];

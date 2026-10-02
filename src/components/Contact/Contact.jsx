@@ -83,7 +83,7 @@ export default function Contact() {
               <span className="gradient-text">something</span>
             </h2>
             <p className="text-sm text-[var(--color-muted)] leading-relaxed max-w-lg">
-              Open to freelance and contract work — Flutter, React Native, web apps, and store delivery.
+              Open to full-time roles and freelance work — Flutter, React Native, web apps, and store delivery.
             </p>
           </motion.div>
 

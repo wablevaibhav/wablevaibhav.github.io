@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { skills } from '../../data/portfolioData';
 import {
-  SiFlutter, SiReact, SiTypescript, SiKotlin, SiNodedotjs, SiCplusplus, SiHtml5, SiPhp,
+  SiFlutter, SiReact, SiTypescript, SiKotlin, SiNodedotjs, SiHtml5, SiPhp,
 } from 'react-icons/si';
 import { FiSmartphone, FiServer, FiCloud, FiTool, FiCpu } from 'react-icons/fi';
 
@@ -12,18 +12,17 @@ const languageIcons = {
   'React Native': <SiReact />,
   'TypeScript / JS': <SiTypescript />,
   'Node.js': <SiNodedotjs />,
-  'PHP': <SiPhp />,
   'Kotlin / Java': <SiKotlin />,
-  'C / C++': <SiCplusplus />,
+  'PHP': <SiPhp />,
   'HTML / CSS': <SiHtml5 />,
 };
 
 const categoryIcons = {
-  'Frontend & Mobile': <FiSmartphone />,
-  'Backend Architecture': <FiServer />,
-  'Cloud & Infrastructure': <FiCloud />,
-  'DevOps & Tools': <FiTool />,
-  'AI-Assisted Dev': <FiCpu />,
+  'Mobile & Web': <FiSmartphone />,
+  'AI & LLM': <FiCpu />,
+  'Backend & Data': <FiServer />,
+  'Cloud & DevOps': <FiCloud />,
+  'Practices': <FiTool />,
 };
 
 const containerVariants = {

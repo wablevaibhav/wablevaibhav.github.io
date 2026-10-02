@@ -38,7 +38,7 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500" />
           </span>
           <span className="text-[0.7rem] md:text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
-            {personalInfo.availability || "Open to freelance & contract work"}
+            {personalInfo.availability || "Open to full-time roles & freelance work"}
           </span>
         </motion.div>
 
@@ -76,13 +76,13 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="max-w-xl text-base md:text-lg text-[var(--color-muted)] leading-relaxed mb-8 px-1"
         >
-          Software Engineer at{" "}
+          Full Stack Developer at{" "}
           <span className="text-[#3B82F6]">CentraLogic</span>
-          , available for freelance{" "}
+          , building AI-integrated apps with{" "}
           <span className="text-white font-semibold">
-            Flutter, React Native, and web
-          </span>{" "}
-          delivery.
+            Flutter, React Native, and the MERN stack
+          </span>
+          .
         </motion.p>
 
         <motion.div
