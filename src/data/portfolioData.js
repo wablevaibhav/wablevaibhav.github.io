@@ -23,7 +23,7 @@ I'm also experienced as a MERN Stack / JavaScript developer, and bring hands-on 
   instagram: "https://www.instagram.com/thevaibhavbuilds",
   portfolio: "https://wablevaibhav.github.io",
   resumeUrl:
-    "https://drive.google.com/file/d/18KAUD_UciuyQJANMiQZa-7iBaZuLGV9J/view?usp=sharing",
+    "https://drive.google.com/file/d/1TAnrlHXeZAtv5paL6gHNlQy-rFcymD1C/view?usp=sharing",
 };
 
 export const skills = {
