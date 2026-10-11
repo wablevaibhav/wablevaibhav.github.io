@@ -16,7 +16,7 @@ const traits = [
   {
     icon: <FiLayers />,
     title: 'Full-Stack Delivery',
-    desc: 'Leading Flutter & React Native at CentraLogic—from UI to Node.js/Express.js APIs and store delivery.',
+    desc: 'Building Java Spring Boot microservices and Node.js/Express.js APIs at CentraLogic, plus Flutter & React Native apps that consume them.',
     color: '#7A8FA6',
   },
   {
@@ -104,7 +104,7 @@ export default function About() {
 
               <motion.div variants={itemVariants} className="mt-1 p-4 rounded-2xl bg-[#3B82F6]/8 border border-[#3B82F6]/20 flex justify-around items-center">
                  <div className="text-center">
-                    <span className="block text-lg font-bold text-white tracking-tight">3+</span>
+                    <span className="block text-lg font-bold text-white tracking-tight">2.5+</span>
                     <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-[#3B82F6]/80">Years</span>
                  </div>
                  <div className="w-px h-8 bg-white/10" />

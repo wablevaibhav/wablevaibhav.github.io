@@ -3,26 +3,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { skills } from '../../data/portfolioData';
 import {
-  SiFlutter, SiReact, SiTypescript, SiKotlin, SiNodedotjs, SiHtml5, SiPhp,
+  SiFlutter, SiReact, SiTypescript, SiKotlin, SiNodedotjs,
 } from 'react-icons/si';
-import { FiSmartphone, FiServer, FiCloud, FiTool, FiCpu } from 'react-icons/fi';
+import { FiSmartphone, FiCloud, FiCpu, FiCoffee, FiDatabase } from 'react-icons/fi';
 
 const languageIcons = {
+  'Java': <FiCoffee />,
   'Dart / Flutter': <SiFlutter />,
   'React Native': <SiReact />,
   'TypeScript / JS': <SiTypescript />,
   'Node.js': <SiNodedotjs />,
-  'Kotlin / Java': <SiKotlin />,
-  'PHP': <SiPhp />,
-  'HTML / CSS': <SiHtml5 />,
+  'Kotlin': <SiKotlin />,
+  'SQL': <FiDatabase />,
 };
 
 const categoryIcons = {
+  'Java Ecosystem': <FiCoffee />,
   'Mobile & Web': <FiSmartphone />,
   'AI & LLM': <FiCpu />,
-  'Backend & Data': <FiServer />,
+  'Backend & Data': <FiDatabase />,
   'Cloud & DevOps': <FiCloud />,
-  'Practices': <FiTool />,
 };
 
 const containerVariants = {
