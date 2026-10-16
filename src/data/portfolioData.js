@@ -3,19 +3,19 @@
 
 export const personalInfo = {
   name: "Vaibhav Wable",
-  title: "Java Full Stack Developer",
-  availability: "Open to full-time roles & freelance work",
+  title: "React Native & Flutter Engineer",
+  availability: "Open to full-time roles & freelance work · Pune / Remote",
   taglines: [
+    "React Native & Flutter Engineer",
+    "Adding LLM Features to Fast Apps",
+    "CI/CD on AWS Amplify & CodeMagic",
+    "Local AI Builder (CodeMind)",
     "Java & Spring Boot Developer",
-    "Microservices & Kafka",
-    "Flutter & React Native Developer",
-    "AI-Integrated Product Builder",
     "Node.js & React Engineer",
-    "Performance Optimization Expert",
   ],
-  about: `Software Engineer with 2.5+ years of production experience building backend services and full stack applications, with a Java foundation (native Android in Java/Kotlin), working knowledge of Spring Boot, microservices, Hibernate/JPA and Kafka, and strong hands-on work in Node.js, Express.js, REST APIs, PostgreSQL and AWS (including Lambda). I currently work at CentraLogic, developing Java Spring Boot microservices with Hibernate/JPA on PostgreSQL and Spring Security, implementing event-driven communication with Apache Kafka, alongside secure Node.js/Express.js services powering features like real-time driver tracking with the Google Maps API.
+  about: `React Native and Flutter engineer who adds LLM features to apps that need to stay fast. I have 2.5+ years of production experience at CentraLogic, shipping cross-platform mobile apps backed by Node.js/Express.js services on AWS (including Lambda) and PostgreSQL, powering features like real-time driver tracking with the Google Maps API. I also develop Java Spring Boot microservices with Hibernate/JPA, Spring Security and Apache Kafka.
 
-I bring hands-on experience in LLM API integration, prompt engineering, and agentic AI workflows (Claude, Cursor, GitHub Copilot), and also build cross-platform mobile apps with Flutter and React Native. I've delivered 20%+ performance gains, built CI/CD pipelines that cut deployment time by 20%, and introduced AI-assisted development workflows that cut dev time by 30%. I'm currently open to full-time roles, and also take on freelance and contract work.`,
+I integrate LLM APIs (OpenAI, Claude, Gemini) into product features, and recently built CodeMind, an open-source local AI coding assistant (Python, FastAPI, Ollama, Pydantic) with 111 tests, handling schema validation and retry/repair of inconsistent model output. I've delivered 20%+ performance gains, built CI/CD pipelines on AWS Amplify and CodeMagic that cut deployment time by 20%, and introduced AI-assisted workflows (Claude, Cursor, GitHub Copilot) that cut dev time by 30%. Based in Pune and open to on-site, hybrid or remote roles, plus freelance and contract work.`,
   location: "Pune, India",
   email: "vaibhavswable@gmail.com",
   linkedin: "https://www.linkedin.com/in/vaibhavwable/",
@@ -28,8 +28,9 @@ I bring hands-on experience in LLM API integration, prompt engineering, and agen
 export const skills = {
   languages: [
     { name: "Java", level: 90, icon: "☕", color: "#ED8B00" },
+    { name: "React Native", level: 92, icon: "⚛️", color: "#61DAFB" },
     { name: "Dart / Flutter", level: 95, icon: "🎯", color: "#54C5F8" },
-    { name: "React Native", level: 90, icon: "⚛️", color: "#61DAFB" },
+    { name: "Python", level: 75, icon: "🐍", color: "#3776AB" },
     { name: "TypeScript / JS", level: 88, icon: "⚡", color: "#3178C6" },
     { name: "Node.js", level: 85, icon: "🟢", color: "#3C873A" },
     { name: "Kotlin", level: 80, icon: "🤖", color: "#7F52FF" },
@@ -55,7 +56,7 @@ export const skills = {
       category: "Mobile & Web",
       icon: "📱",
       color: "#60a5fa",
-      skills: ["Flutter", "React Native", "ReactJS", "Next.js", "TypeScript", "GraphQL"],
+      skills: ["React Native", "Flutter", "ReactJS", "Next.js", "TypeScript", "GraphQL"],
     },
     {
       category: "AI & LLM",
@@ -64,6 +65,7 @@ export const skills = {
       skills: [
         "LLM API Integration (OpenAI, Claude, Gemini)",
         "Prompt Engineering",
+        "Local LLMs (Ollama)",
         "Agentic AI Workflows",
         "GitHub Copilot",
         "Cursor",
@@ -157,6 +159,29 @@ export const experiences = [
 ];
 
 export const projects = [
+  {
+    id: "codemind",
+    title: "CodeMind — Local AI Coding Assistant",
+    category: "Python · FastAPI · Ollama",
+    description:
+      "Privacy-first, open-source AI coding assistant running open-source LLMs locally via Ollama, with Pydantic-validated responses and 111 tests.",
+    longDescription:
+      "A local AI coding assistant that never sends code to a cloud API. Built with Python, FastAPI, Ollama and Pydantic, it offers modes for debugging, explaining, generating, reviewing and learning code. AI output is validated against Pydantic/JSON Schema, with a retry and repair mechanism for invalid JSON, plus streaming responses, chat history and a learning mode with exercises and quizzes. Several local models were benchmarked to understand the speed vs. quality trade-off.",
+    tech: ["Python", "FastAPI", "Ollama", "Pydantic", "JSON Schema", "Local LLMs"],
+    features: [
+      "Debug, explain, generate, review & learn modes",
+      "Pydantic / JSON Schema response validation",
+      "Retry and repair for invalid model JSON",
+      "Streaming responses & chat history",
+      "Learning mode with exercises and quizzes",
+      "111 automated tests",
+    ],
+    color: "#10b981",
+    gradient: "linear-gradient(135deg, #0d3a2a, #1a2040)",
+    emoji: "🧠",
+    status: "Open Source",
+    links: { github: "https://github.com/wablevaibhav/CodeMind", live: null },
+  },
   {
     id: "taskflow",
     title: "TaskFlow — PHP REST API",

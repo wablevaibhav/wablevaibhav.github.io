@@ -76,11 +76,11 @@ export default function Hero() {
           transition={{ delay: 0.3 }}
           className="max-w-xl text-base md:text-lg text-[var(--color-muted)] leading-relaxed mb-8 px-1"
         >
-          Java Full Stack Developer at{" "}
+          Software Engineer at{" "}
           <span className="text-[#3B82F6]">CentraLogic</span>
-          , building backend services with{" "}
+          , adding LLM features to fast apps with{" "}
           <span className="text-white font-semibold">
-            Java, Spring Boot, Microservices, and React
+            React Native, Flutter, Node.js, and Spring Boot
           </span>
           .
         </motion.p>
