@@ -1,101 +1,111 @@
 // ── Portfolio Data ─────────────────────────────────────────────────────────────
 // Single source of truth for all portfolio content.
 
+// ── Experience duration (computed, never hardcoded) ───────────────────────────
+// CentraLogic start date. Everything that mentions "years of experience" derives
+// from this so the site never goes out of date.
+export const CAREER_START = { year: 2024, month: 1 }; // Jan 2024
+
+export function monthsSince({ year, month }, now = new Date()) {
+  return Math.max(0, (now.getFullYear() - year) * 12 + (now.getMonth() + 1 - month));
+}
+
+export function formatDuration(totalMonths) {
+  const y = Math.floor(totalMonths / 12);
+  const m = totalMonths % 12;
+  const parts = [];
+  if (y) parts.push(`${y} yr${y > 1 ? "s" : ""}`);
+  if (m) parts.push(`${m} mo${m > 1 ? "s" : ""}`);
+  return parts.join(" ") || "< 1 mo";
+}
+
+export const centraLogicMonths = monthsSince(CAREER_START);
+export const centraLogicYears = Math.floor(centraLogicMonths / 12);
+
+// The one framing used everywhere on the site.
+export const experienceSummary = `${centraLogicYears}+ years at CentraLogic (since Jan 2024) + Android internship (2023)`;
+
 export const personalInfo = {
   name: "Vaibhav Wable",
-  title: "React Native & Flutter Engineer",
+  title: "Mobile & Full-Stack Engineer",
   availability: "Open to full-time roles & freelance work · Pune / Remote",
   taglines: [
-    "React Native & Flutter Engineer",
-    "Adding LLM Features to Fast Apps",
-    "CI/CD on AWS Amplify & CodeMagic",
-    "Local AI Builder (CodeMind)",
-    "Java & Spring Boot Developer",
-    "Node.js & React Engineer",
+    "Flutter & React Native Engineer",
+    "Next.js + Node.js Full-Stack",
+    "Shipping LLM features in real apps",
   ],
-  about: `React Native and Flutter engineer who adds LLM features to apps that need to stay fast. I have nearly 3 years of production experience at CentraLogic, profiling and optimizing React Native and Flutter apps, setting up CI/CD pipelines on AWS Amplify and CodeMagic, and shipping LLM features (OpenAI, Claude) alongside secure Node.js/Express REST APIs on AWS.
+  about: `Mobile and full-stack engineer working across Flutter, React Native, Next.js and Node.js, with a focus on shipping LLM features in real apps. ${experienceSummary}. At CentraLogic I profile and optimize React Native and Flutter apps in production, set up CI/CD pipelines on AWS Amplify and Codemagic, and ship LLM features (OpenAI, Claude) alongside secure Node.js/Express REST APIs on AWS.
 
-Outside work I build projects end to end: CodeMind, an open-source local AI coding assistant (Python, FastAPI, Ollama, Pydantic) with 111 tests; a Spring Boot and Kafka order platform; a Job Application Tracker API and UI; and Flutter apps like an AI-assisted expense tracker and a child safety tracker. Based in Pune and open to on-site, hybrid or remote roles.`,
+Outside work I build AI developer tooling: CodeMind, an open-source local AI coding assistant (Python, FastAPI, Ollama, Pydantic) with 111 tests, and GitMCP, an open-source GitHub MCP server listed on mcpservers.org. I also build Flutter apps like an AI-assisted expense tracker and a child safety tracker, a Job Application Tracker (API + UI), and a Spring Boot and Kafka order platform. Based in Pune and open to on-site, hybrid or remote roles.`,
   location: "Pune, India",
   email: "vaibhavswable@gmail.com",
   linkedin: "https://www.linkedin.com/in/vaibhavwable/",
   github: "https://github.com/wablevaibhav",
   instagram: "https://www.instagram.com/thevaibhavbuilds",
   portfolio: "https://wablevaibhav.github.io",
+  // TODO: replace public/resume.pdf with the Mobile / Full-Stack resume (keep the same path).
   resumeUrl: "/resume.pdf",
 };
 
-export const skills = {
-  languages: [
-    { name: "Java", level: 90, icon: "☕", color: "#ED8B00" },
-    { name: "React Native", level: 92, icon: "⚛️", color: "#61DAFB" },
-    { name: "Dart / Flutter", level: 95, icon: "🎯", color: "#54C5F8" },
-    { name: "Python", level: 75, icon: "🐍", color: "#3776AB" },
-    { name: "TypeScript / JS", level: 88, icon: "⚡", color: "#3178C6" },
-    { name: "Node.js", level: 85, icon: "🟢", color: "#3C873A" },
-    { name: "Kotlin", level: 80, icon: "🤖", color: "#7F52FF" },
-    { name: "SQL", level: 85, icon: "🗄️", color: "#777BB4" },
-  ],
-  expertise: [
-    {
-      category: "Java Ecosystem",
-      icon: "☕",
-      color: "#ED8B00",
-      skills: [
-        "Java 17/21",
-        "Spring Boot",
-        "Spring Data JPA",
-        "Hibernate",
-        "Spring Security (JWT, OAuth2)",
-        "Microservices",
-        "Apache Kafka",
-        "JUnit 5 / Mockito",
-      ],
-    },
-    {
-      category: "Mobile & Web",
-      icon: "📱",
-      color: "#60a5fa",
-      skills: ["React Native", "Flutter", "ReactJS", "Next.js", "TypeScript", "GraphQL"],
-    },
-    {
-      category: "AI & LLM",
-      icon: "🤖",
-      color: "#fb923c",
-      skills: [
-        "LLM API Integration (OpenAI, Claude, Gemini)",
-        "Prompt Engineering",
-        "Local LLMs (Ollama)",
-        "Pydantic / JSON Schema validation",
-        "FastAPI",
-        "Agentic AI Workflows",
-        "GitHub Copilot",
-        "Cursor",
-      ],
-    },
-    {
-      category: "Backend & Data",
-      icon: "🗄️",
-      color: "#818cf8",
-      skills: [
-        "Node.js",
-        "Express.js",
-        "REST APIs",
-        "PostgreSQL",
-        "MySQL",
-        "MongoDB",
-        "Redis",
-        "Google Maps API",
-      ],
-    },
-    {
-      category: "Cloud & DevOps",
-      icon: "⚡",
-      color: "#3b82f6",
-      skills: ["AWS (Lambda, Amplify)", "CodeMagic", "Docker", "Kubernetes", "CI/CD", "Jenkins", "GitHub Actions", "Azure"],
-    },
-  ],
-};
+// Quick stats shown in the About section.
+export const stats = [
+  { value: `${centraLogicYears}+`, label: "Years" },
+  // TODO: confirm "10+ shipped" is accurate (carried over from the previous site).
+  { value: "10+", label: "Shipped" },
+  { value: "M.Sc.", label: "CS" },
+];
+
+// Grouped skill chips, in display order. No proficiency percentages.
+// TODO: Kubernetes, Jenkins, Azure and GraphQL were removed because no project on
+// the site demonstrates them. Confirm, or add a project that shows them and re-add.
+export const skillGroups = [
+  {
+    category: "Mobile",
+    icon: "mobile",
+    color: "#60a5fa",
+    skills: ["Flutter", "Dart", "React Native", "Kotlin", "Android SDK", "Firebase", "Google Maps API", "Play Store & App Store delivery"],
+  },
+  {
+    category: "Web",
+    icon: "web",
+    color: "#38bdf8",
+    skills: ["Next.js", "React", "TypeScript", "JavaScript", "Vite", "Tailwind CSS"],
+  },
+  {
+    category: "Backend",
+    icon: "backend",
+    color: "#818cf8",
+    skills: ["Node.js", "Express.js", "REST APIs", "FastAPI", "PostgreSQL", "MySQL", "MongoDB", "Redis", "SQL"],
+  },
+  {
+    category: "AI / LLM",
+    icon: "ai",
+    color: "#fb923c",
+    skills: [
+      "LLM API Integration (OpenAI, Claude, Gemini)",
+      "MCP Servers",
+      "Prompt Engineering",
+      "Local LLMs (Ollama)",
+      "Pydantic / JSON Schema validation",
+      "Python",
+      "Agentic AI Workflows",
+      "Claude Code",
+      "Cursor",
+    ],
+  },
+  {
+    category: "Cloud / DevOps",
+    icon: "cloud",
+    color: "#3b82f6",
+    skills: ["AWS (Lambda, Amplify)", "Codemagic", "CI/CD", "GitHub Actions", "Docker"],
+  },
+  {
+    category: "Java",
+    icon: "java",
+    color: "#ED8B00",
+    skills: ["Java 17/21", "Spring Boot", "Spring Data JPA", "Hibernate", "Spring Security (JWT)", "Apache Kafka", "JUnit 5 / Mockito"],
+  },
+];
 
 export const experiences = [
   {
@@ -103,14 +113,14 @@ export const experiences = [
     company: "CentraLogic",
     role: "Software Engineer",
     period: "Jan 2024 – Present",
-    duration: "2 yrs 10 mos",
+    duration: formatDuration(centraLogicMonths),
     type: "Full-time",
     location: "Pune, India · On-site",
     color: "#60a5fa",
     highlights: [
-      "React Native and Flutter engineer on production mobile apps and Node.js/AWS backends.",
+      "Flutter and React Native engineer on production mobile apps and Node.js/AWS backends.",
       "Profiled and optimized React Native and Flutter apps in production.",
-      "Set up CI/CD pipelines on AWS Amplify and CodeMagic.",
+      "Set up CI/CD pipelines on AWS Amplify and Codemagic.",
       "Shipped LLM features (OpenAI, Claude) into product flows and built secure Node.js/Express REST APIs on AWS.",
     ],
     tech: [
@@ -120,7 +130,7 @@ export const experiences = [
       "Express.js",
       "AWS Lambda",
       "AWS Amplify",
-      "CodeMagic",
+      "Codemagic",
       "LLM APIs",
     ],
   },
@@ -297,6 +307,7 @@ export const education = [
   },
 ];
 
+// featured: true → shown as one of the 6 compact badges; the rest sit behind "Show all".
 export const certifications = [
   {
     title: "Introduction to Claude Cowork",
@@ -306,12 +317,14 @@ export const certifications = [
   },
   {
     title: "Claude Code 101",
+    featured: true,
     issuer: "Anthropic",
     icon: "💻",
     color: "#D97757",
   },
   {
     title: "AI Fluency Framework & Foundations",
+    featured: true,
     issuer: "Anthropic",
     icon: "🧠",
     color: "#D97757",
@@ -324,24 +337,28 @@ export const certifications = [
   },
   {
     title: "Building with the Claude API",
+    featured: true,
     issuer: "Anthropic",
     icon: "🤖",
     color: "#D97757",
   },
   {
     title: "Claude Code in Action",
+    featured: true,
     issuer: "Anthropic",
     icon: "⚡",
     color: "#D97757",
   },
   {
     title: "AWS Cloud Technical Essentials",
+    featured: true,
     issuer: "AWS",
     icon: "☁️",
     color: "#FF9900",
   },
   {
     title: "React Basics",
+    featured: true,
     issuer: "Meta",
     icon: "⚛️",
     color: "#0A66C2",

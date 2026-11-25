@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="gradient-text">/&gt;</span>
             </div>
             <p className="text-[var(--color-muted)] text-xs leading-relaxed max-w-sm">
-              Cross-platform apps, clean architecture, and AI-assisted delivery — CentraLogic + freelance.
+              Mobile & full-stack engineer: Flutter, React Native, Next.js, Node.js, with LLM features. CentraLogic + freelance.
             </p>
           </div>
 

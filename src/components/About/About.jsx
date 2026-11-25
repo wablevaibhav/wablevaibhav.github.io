@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { personalInfo } from '../../data/portfolioData';
+import { personalInfo, stats } from '../../data/portfolioData';
 import {
   FiMapPin, FiMail, FiLinkedin, FiGithub,
   FiZap, FiLayers, FiCpu, FiExternalLink
@@ -16,13 +16,13 @@ const traits = [
   {
     icon: <FiLayers />,
     title: 'Full-Stack Delivery',
-    desc: 'Building Java Spring Boot microservices and Node.js/Express.js APIs at CentraLogic, plus Flutter & React Native apps that consume them.',
+    desc: 'Flutter & React Native apps at CentraLogic backed by Node.js/Express APIs on AWS, plus Next.js on the web.',
     color: '#7A8FA6',
   },
   {
     icon: <FiCpu />,
-    title: 'AI-Integrated Products',
-    desc: 'Integrating LLM APIs (OpenAI, Claude, Gemini) into product features and using Cursor & Claude Code to move faster.',
+    title: 'LLM Features & AI Tooling',
+    desc: 'Shipping LLM features (OpenAI, Claude) in real apps, and building open-source AI developer tools: CodeMind and GitMCP.',
     color: '#3B82F6',
   },
 ];
@@ -103,20 +103,15 @@ export default function About() {
               ))}
 
               <motion.div variants={itemVariants} className="mt-1 p-4 rounded-2xl bg-[#3B82F6]/8 border border-[#3B82F6]/20 flex justify-around items-center">
-                 <div className="text-center">
-                    <span className="block text-lg font-bold text-white tracking-tight">2.5+</span>
-                    <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-[#3B82F6]/80">Years</span>
-                 </div>
-                 <div className="w-px h-8 bg-white/10" />
-                 <div className="text-center">
-                    <span className="block text-lg font-bold text-white tracking-tight">10+</span>
-                    <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-[#3B82F6]/80">Shipped</span>
-                 </div>
-                 <div className="w-px h-8 bg-white/10" />
-                 <div className="text-center">
-                    <span className="block text-lg font-bold text-white tracking-tight">M.Sc.</span>
-                    <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-[#3B82F6]/80">CS</span>
-                 </div>
+                {stats.map((stat, i) => (
+                  <div key={stat.label} className="contents">
+                    {i > 0 && <div className="w-px h-8 bg-white/10" />}
+                    <div className="text-center">
+                      <span className="block text-lg font-bold text-white tracking-tight">{stat.value}</span>
+                      <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-[#3B82F6]/80">{stat.label}</span>
+                    </div>
+                  </div>
+                ))}
               </motion.div>
             </div>
           </div>
