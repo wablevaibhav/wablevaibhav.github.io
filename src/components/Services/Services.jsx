@@ -71,7 +71,7 @@ export default function Services() {
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <a href="#contact" data-hire-cta className="btn-primary btn-shine">
+            <a href="#contact" data-hire-cta data-track="cta-click" data-track-cta="start-project" data-track-location="services" className="btn-primary btn-shine">
               <FiSend size={14} aria-hidden="true" /> Start a project
             </a>
           </motion.div>

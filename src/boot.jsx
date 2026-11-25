@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { MotionGlobalConfig } from 'framer-motion';
 import App from './App.jsx';
+import { initAnalytics } from './lib/analytics';
 
 // Respect prefers-reduced-motion: make every Framer Motion animation instant.
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -17,6 +18,8 @@ const app = (
 
 // Production HTML is prerendered (scripts/prerender.js) → hydrate it.
 // In dev the root only holds a placeholder comment → render from scratch.
+initAnalytics();
+
 if (root.firstElementChild) {
   hydrateRoot(root, app);
 } else {

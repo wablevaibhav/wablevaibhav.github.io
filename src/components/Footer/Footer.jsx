@@ -51,6 +51,9 @@ export default function Footer() {
                     target={s.href.startsWith('mailto:') ? undefined : '_blank'}
                     rel="noopener noreferrer"
                     aria-label={s.label}
+                    data-track="social-click"
+                    data-track-platform={s.label.toLowerCase()}
+                    data-track-location="footer"
                     className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-sm text-slate-300 hover:text-[#60a5fa] hover:border-[#3B82F6]/40 transition-all"
                   >
                     <span aria-hidden="true">{s.icon}</span>

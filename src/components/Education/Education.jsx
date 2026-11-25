@@ -84,6 +84,7 @@ export default function Education() {
                 <button
                   type="button"
                   onClick={() => setShowAll((v) => !v)}
+                  data-track={showAll ? undefined : 'certs-show-all'}
                   aria-expanded={showAll}
                   aria-controls="cert-list"
                   className="text-xs font-semibold text-[#3B82F6] hover:text-white transition-colors px-1"

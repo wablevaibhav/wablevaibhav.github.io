@@ -59,6 +59,50 @@ Search the file for `TODO:` to find everything that still needs real data.
 
 **Hero photo:** save a square photo (at least 600×600) as `src/assets/profile.jpg` (or `.png` / `.webp`). It is picked up automatically; until then the hero shows an animated "VW" monogram.
 
+## Analytics (Umami)
+
+Visitor tracking uses [Umami Cloud](https://cloud.umami.is): free tier, cookieless (no cookie banner needed), and no personal data is sent. **The Umami dashboard is the admin panel.**
+
+**Setup (one time):**
+
+1. Sign up at <https://cloud.umami.is> (free "Hobby" plan).
+2. *Settings → Websites → Add website*: name `Portfolio`, domain `wablevaibhav.github.io`.
+3. Copy the **Website ID** into `UMAMI_WEBSITE_ID` in `src/data/portfolioData.js`, commit and push.
+4. Optional: *Share URL* gives a read-only dashboard link you can open on your phone.
+
+Tracking only runs on `wablevaibhav.github.io` (localhost is ignored) and the script loads after the page is painted, so it doesn't affect performance.
+
+**What you'll see:**
+
+| Where in Umami | What it tells you |
+|---|---|
+| Visitors / Views | How many people visit, per day/week/month |
+| Referrers, UTM | Where they came from: LinkedIn, GitHub, Google, Instagram, direct |
+| Countries, Devices | Location and mobile vs desktop |
+| Events → `section-view` (`section`) | Which sections people actually reach |
+| Events → `scroll-depth` (`percent`) | How far down the page they get (25/50/75/100) |
+| Events → `project-open` (`project`) | Which projects get opened most; your focus list |
+| Events → `project-link` (`project`, `link`) | Repo / live / listing clicks per project |
+| Events → `resume-open` (`location`) | Resume opens (hero, navbar, mobile menu) |
+| Events → `cta-click` (`cta`, `location`) | Let's Talk, See my work, Hire Me, Start a project, WhatsApp, email, book call |
+| Events → `social-click` (`platform`, `location`) | LinkedIn / GitHub / Instagram / YouTube / blog clicks |
+| Events → `contact-submit` (`method`, `status`) | Contact form sends, and whether they succeeded |
+| Events → `process-step` (`step`), `certs-show-all` | Engagement with How I Work and certifications |
+
+To track a new button, add `data-track="event-name"` (and any `data-track-foo="bar"` properties) to the element. See `src/lib/analytics.js`.
+
+**Tagged links for your profiles** (so Umami shows exactly which profile sent each visitor):
+
+| Put this link on | URL |
+|---|---|
+| LinkedIn (profile + featured) | `https://wablevaibhav.github.io/?utm_source=linkedin&utm_medium=profile` |
+| LinkedIn posts | `https://wablevaibhav.github.io/?utm_source=linkedin&utm_medium=post` |
+| GitHub profile README | `https://wablevaibhav.github.io/?utm_source=github&utm_medium=profile` |
+| Instagram bio | `https://wablevaibhav.github.io/?utm_source=instagram&utm_medium=bio` |
+| YouTube channel / descriptions | `https://wablevaibhav.github.io/?utm_source=youtube&utm_medium=video` |
+| Resume PDF | `https://wablevaibhav.github.io/?utm_source=resume&utm_medium=pdf` |
+| Job applications / cold emails | `https://wablevaibhav.github.io/?utm_source=application&utm_medium=email` |
+
 ## Run locally
 
 ```bash

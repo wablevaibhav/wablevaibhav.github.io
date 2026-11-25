@@ -112,6 +112,8 @@ export default function Navbar() {
         <div className="flex items-center gap-2 shrink-0">
           <a
             href={personalInfo.resumeUrl}
+            data-track="resume-open"
+            data-track-location="navbar"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden md:flex items-center justify-center whitespace-nowrap px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-xs uppercase tracking-widest hover:border-[#3B82F6]/40 transition-all"
@@ -175,6 +177,8 @@ export default function Navbar() {
             </ul>
             <a
               href={personalInfo.resumeUrl}
+              data-track="resume-open"
+              data-track-location="mobile-menu"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary justify-center mt-6"

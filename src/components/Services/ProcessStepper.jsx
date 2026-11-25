@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { FiCheck } from 'react-icons/fi';
 import { processSteps } from '../../data/portfolioData';
 import { usePrefersReducedMotion } from '../../lib/hooks';
+import { track } from '../../lib/analytics';
 
 const AUTO_ADVANCE_MS = 4500;
 
@@ -25,7 +26,14 @@ export default function ProcessStepper() {
     return () => clearTimeout(id);
   }, [autoPlay, active]);
 
+  // Ref, not state: hover and click fire in the same render, and both would
+  // otherwise see the old `active` and log the step twice.
+  const lastTracked = useRef(0);
   const select = (i, focus = false) => {
+    if (i !== lastTracked.current) {
+      lastTracked.current = i;
+      track('process-step', { step: processSteps[i].title });
+    }
     setActive(i);
     setPaused(true);
     if (focus) tabRefs.current[i]?.focus();

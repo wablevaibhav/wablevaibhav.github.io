@@ -170,14 +170,16 @@ export default function Hero() {
           </p>
 
           <div className="hero-slide flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-6" style={{ animationDelay: "0.2s" }}>
-            <a href="#contact" className="btn-primary btn-shine justify-center w-full sm:w-auto">
+            <a href="#contact" data-track="cta-click" data-track-cta="lets-talk" data-track-location="hero" className="btn-primary btn-shine justify-center w-full sm:w-auto">
               <FiSend size={14} aria-hidden="true" /> Let's Talk
             </a>
-            <a href="#projects" className="btn-outline justify-center w-full sm:w-auto">
+            <a href="#projects" data-track="cta-click" data-track-cta="see-work" data-track-location="hero" className="btn-outline justify-center w-full sm:w-auto">
               See my work
             </a>
             <a
               href={personalInfo.resumeUrl}
+              data-track="resume-open"
+              data-track-location="hero"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline justify-center w-full sm:w-auto"
@@ -194,6 +196,9 @@ export default function Hero() {
                   target={item.href.startsWith("mailto:") ? undefined : "_blank"}
                   rel="noopener noreferrer"
                   aria-label={item.label}
+                  data-track="social-click"
+                  data-track-platform={item.label.toLowerCase()}
+                  data-track-location="hero"
                   className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 hover:text-[#60a5fa] hover:-translate-y-0.5 transition-all text-slate-400"
                 >
                   <span aria-hidden="true">{item.icon}</span>

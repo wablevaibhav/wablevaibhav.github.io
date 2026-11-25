@@ -12,6 +12,7 @@ import Testimonials from './components/Testimonials/Testimonials';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import { trackClicks, trackSectionsAndScroll } from './lib/analytics';
 
 // Thin progress bar at the top of the page.
 function ScrollProgress() {
@@ -92,7 +93,7 @@ function FloatingActions() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
         >
-          <a href="#contact" className="btn-primary shadow-xl">
+          <a href="#contact" data-track="cta-click" data-track-cta="hire-me" data-track-location="sticky-mobile" className="btn-primary shadow-xl">
             <FiBriefcase size={14} aria-hidden="true" /> Hire Me
           </a>
         </motion.div>
@@ -119,8 +120,20 @@ function FloatingActions() {
 
 // Each below-the-fold section is its own Suspense boundary so React hydrates
 // them as separate, interruptible chunks instead of one long blocking task.
+function useAnalytics() {
+  useEffect(() => {
+    const stopSections = trackSectionsAndScroll();
+    const stopClicks = trackClicks();
+    return () => {
+      stopSections();
+      stopClicks();
+    };
+  }, []);
+}
+
 export default function App() {
   useSpotlight();
+  useAnalytics();
   return (
     <div className="min-h-screen bg-[#0B0F14] text-[#E8EEF4] antialiased overflow-x-hidden selection:bg-blue-400/30 selection:text-white page-fade-in">
       <ScrollProgress />

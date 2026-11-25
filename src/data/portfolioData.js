@@ -497,3 +497,12 @@ export const testimonials = [];
 // TODO: create a Web3Forms access key for vaibhavswable@gmail.com and paste it here.
 // While it is empty the form falls back to opening the visitor's email app (mailto).
 export const WEB3FORMS_ACCESS_KEY = "";
+
+// ── Analytics (Umami Cloud) ───────────────────────────────────────────────────
+// TODO: create a free account at https://cloud.umami.is, add the website
+// "wablevaibhav.github.io", and paste its Website ID here. Tracking is off
+// while this is empty. See README → Analytics.
+export const UMAMI_WEBSITE_ID = "";
+export const UMAMI_SCRIPT_URL = "https://cloud.umami.is/script.js";
+// Only this hostname is counted (localhost and previews are ignored).
+export const ANALYTICS_DOMAIN = "wablevaibhav.github.io";

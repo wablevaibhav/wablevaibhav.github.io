@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { personalInfo, WEB3FORMS_ACCESS_KEY } from '../../data/portfolioData';
+import { track } from '../../lib/analytics';
 import {
   FiMail, FiLinkedin, FiGithub, FiInstagram, FiYoutube, FiEdit3,
   FiMapPin, FiSend, FiCheck, FiArrowUpRight, FiAlertCircle, FiLoader, FiCalendar,
@@ -53,6 +54,7 @@ export default function Contact() {
 
     // No access key yet → fall back to the visitor's email app.
     if (!WEB3FORMS_ACCESS_KEY) {
+      track('contact-submit', { method: 'mailto', status: 'opened' });
       window.location.href = buildMailto(form);
       setStatus('success');
       return;
@@ -77,8 +79,10 @@ export default function Contact() {
       if (!res.ok || data.success === false) throw new Error(data.message || 'Request failed');
       setStatus('success');
       setForm(EMPTY);
+      track('contact-submit', { method: 'web3forms', status: 'success' });
     } catch {
       setStatus('error');
+      track('contact-submit', { method: 'web3forms', status: 'error' });
     }
   };
 
@@ -170,6 +174,9 @@ export default function Contact() {
               <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3">
                 <a
                   href={personalInfo.whatsapp}
+                  data-track="cta-click"
+                  data-track-cta="whatsapp"
+                  data-track-location="contact"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#4ade80] font-semibold text-sm hover:bg-[#25D366]/20 transition-colors"
@@ -179,6 +186,9 @@ export default function Contact() {
                 {personalInfo.bookingUrl ? (
                   <a
                     href={personalInfo.bookingUrl}
+                    data-track="cta-click"
+                    data-track-cta="book-call"
+                    data-track-location="contact"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-[#3B82F6]/10 border border-[#3B82F6]/30 text-[#60a5fa] font-semibold text-sm hover:bg-[#3B82F6]/20 transition-colors"
@@ -188,6 +198,9 @@ export default function Contact() {
                 ) : (
                   <a
                     href={`mailto:${personalInfo.email}`}
+                    data-track="cta-click"
+                    data-track-cta="email"
+                    data-track-location="contact"
                     className="flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white/[0.03] border border-white/10 text-slate-200 font-semibold text-sm hover:border-[#3B82F6]/40 transition-colors"
                   >
                     <FiMail aria-hidden="true" /> Email me
@@ -211,6 +224,9 @@ export default function Contact() {
                   <motion.li key={card.label} variants={itemVariants}>
                     <a
                       href={card.href}
+                      data-track="social-click"
+                      data-track-platform={card.label.toLowerCase()}
+                      data-track-location="contact"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="surface-card p-3.5 rounded-2xl flex items-center justify-between group hover:border-[#3B82F6]/40"

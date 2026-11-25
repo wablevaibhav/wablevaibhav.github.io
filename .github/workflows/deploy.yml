@@ -28,23 +28,42 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Lint
+        run: npm run lint
+
+      - name: Build (includes prerender check)
         run: npm run build
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: "./dist"
 
+      # The deploy step occasionally can't see the just-uploaded artifact yet
+      # ("No artifacts named github-pages were found"). Retry once after a pause.
       - name: Deploy to GitHub Pages
-        id: deployment
+        id: deployment_try1
+        continue-on-error: true
         uses: actions/deploy-pages@v4
+
+      - name: Wait before retry
+        if: steps.deployment_try1.outcome == 'failure'
+        run: sleep 20
+
+      - name: Deploy to GitHub Pages (retry)
+        id: deployment_try2
+        if: steps.deployment_try1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+
+      - name: Deployment URL
+        id: deployment
+        run: echo "page_url=${{ steps.deployment_try1.outputs.page_url || steps.deployment_try2.outputs.page_url }}" >> "$GITHUB_OUTPUT"

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { projects } from "../../data/portfolioData";
+import { track } from "../../lib/analytics";
 import { FiGithub, FiExternalLink, FiX, FiChevronRight, FiList } from "react-icons/fi";
 
 const containerVariants = {
@@ -177,17 +178,17 @@ function ProjectModal({ project, onClose }) {
           {(repos.length > 0 || live || listing) && (
             <div className="flex flex-wrap gap-2.5 pt-4 border-t border-white/5">
               {repos.map((r) => (
-                <a key={r.url} href={r.url} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                <a key={r.url} href={r.url} target="_blank" rel="noopener noreferrer" className="btn-outline" data-track="project-link" data-track-project={project.id} data-track-link={r.label.toLowerCase()}>
                   <FiGithub size={14} aria-hidden="true" /> {r.label}
                 </a>
               ))}
               {listing && (
-                <a href={listing.url} target="_blank" rel="noopener noreferrer" className="btn-outline">
+                <a href={listing.url} target="_blank" rel="noopener noreferrer" className="btn-outline" data-track="project-link" data-track-project={project.id} data-track-link="listing">
                   <FiList size={14} aria-hidden="true" /> {listing.label}
                 </a>
               )}
               {live && (
-                <a href={live} target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <a href={live} target="_blank" rel="noopener noreferrer" className="btn-primary" data-track="project-link" data-track-project={project.id} data-track-link="live">
                   <FiExternalLink size={14} aria-hidden="true" /> Live site
                 </a>
               )}
@@ -263,6 +264,10 @@ export default function Projects() {
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
   const close = useCallback(() => setSelected(null), []);
+  const open = (proj) => {
+    setSelected(proj);
+    track("project-open", { project: proj.id, featured: Boolean(proj.featured) });
+  };
 
   return (
     <section id="projects" className="section-shell scroll-mt-24 relative bg-[#0B0F14]">
@@ -287,14 +292,14 @@ export default function Projects() {
 
           <motion.ul variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             {featured.map((proj) => (
-              <ProjectCard key={proj.id} project={proj} onOpen={() => setSelected(proj)} />
+              <ProjectCard key={proj.id} project={proj} onOpen={() => open(proj)} />
             ))}
           </motion.ul>
 
           {others.length > 0 && (
             <motion.ul variants={containerVariants} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
               {others.map((proj) => (
-                <ProjectCard key={proj.id} project={proj} onOpen={() => setSelected(proj)} />
+                <ProjectCard key={proj.id} project={proj} onOpen={() => open(proj)} />
               ))}
             </motion.ul>
           )}
