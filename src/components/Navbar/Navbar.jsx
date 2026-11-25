@@ -47,10 +47,9 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
+    <nav
+      aria-label="Main"
       className="fixed top-0 left-0 right-0 z-[100] flex justify-center transition-all duration-500 py-3 md:py-5"
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
     >
       <div
         className={`
@@ -160,6 +159,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.nav>
+    </nav>
   );
 }

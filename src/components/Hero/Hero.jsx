@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { personalInfo } from "../../data/portfolioData";
+import { usePrefersReducedMotion } from "../../lib/hooks";
 import {
   FiGithub,
   FiLinkedin,
@@ -19,6 +19,27 @@ const socialLinks = [
 ];
 
 const taglineSequence = personalInfo.taglines.flatMap((t) => [t, 2000]);
+const taglineClass =
+  "text-lg md:text-2xl font-medium text-[var(--color-muted)] tracking-tight";
+
+// Static first tagline in the prerendered HTML and for reduced-motion users;
+// the typing effect takes over after hydration otherwise.
+function Tagline() {
+  const reduceMotion = usePrefersReducedMotion();
+  if (reduceMotion) {
+    return <p className={taglineClass}>{personalInfo.taglines[0]}</p>;
+  }
+  return (
+    <TypeAnimation
+      sequence={taglineSequence}
+      wrapper="p"
+      speed={50}
+      className={taglineClass}
+      repeat={Infinity}
+      aria-label={personalInfo.taglines.join(" · ")}
+    />
+  );
+}
 
 export default function Hero() {
   return (
@@ -30,80 +51,43 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(122,143,166,0.06),transparent_45%)] pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-3xl mx-auto flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 mb-4 flex items-center gap-2"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+        <div className="px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/10 mb-4 flex items-center gap-2">
+          <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+            <span className="animate-ping motion-reduce:hidden absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-500" />
           </span>
-          <span className="text-[0.7rem] md:text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
-            {personalInfo.availability || "Open to full-time roles & freelance work"}
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-300">
+            {personalInfo.availability}
           </span>
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.15 }}
-          className="text-[#3B82F6] font-mono text-xs md:text-sm tracking-[0.24em] uppercase mb-3"
-        >
-          Hello World, I'm
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="heading-hero text-white mb-5"
-        >
-          Vaibhav <span className="gradient-text">Wable</span>
-        </motion.h1>
-
-        <div className="h-9 md:h-11 mb-6">
-          <TypeAnimation
-            sequence={taglineSequence}
-            wrapper="h2"
-            speed={50}
-            className="text-lg md:text-2xl font-medium text-[var(--color-muted)] tracking-tight"
-            repeat={Infinity}
-          />
         </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="max-w-xl text-base md:text-lg text-[var(--color-muted)] leading-relaxed mb-8 px-1"
-        >
+        <p className="text-[#60a5fa] font-mono text-xs md:text-sm tracking-[0.24em] uppercase mb-3">
+          Hello World, I'm
+        </p>
+
+        <h1 className="heading-hero text-white mb-5">
+          Vaibhav <span className="gradient-text">Wable</span>
+        </h1>
+
+        <div className="min-h-9 md:min-h-11 mb-6">
+          <Tagline />
+        </div>
+
+        <p className="max-w-xl text-base md:text-lg text-[var(--color-muted)] leading-relaxed mb-8 px-1">
           Software Engineer at{" "}
-          <span className="text-[#3B82F6]">CentraLogic</span>
-          , building mobile and web apps with{" "}
+          <span className="text-[#60a5fa]">CentraLogic</span>, building
+          mobile and web apps with{" "}
           <span className="text-white font-semibold">
             Flutter, React Native, Next.js and Node.js
           </span>
           , and shipping LLM features in real apps.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex flex-col items-center gap-3 w-full sm:w-auto mb-8"
-        >
+        <div className="flex flex-col items-center gap-3 w-full sm:w-auto mb-8">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 w-full sm:w-auto">
-            <button
-              className="btn-primary justify-center w-full sm:w-auto"
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-            >
-              <FiSend size={14} /> Let's Talk
-            </button>
+            <a href="#contact" className="btn-primary justify-center w-full sm:w-auto">
+              <FiSend size={14} aria-hidden="true" /> Let's Talk
+            </a>
             <a
               href={personalInfo.resumeUrl}
               target="_blank"
@@ -117,31 +101,26 @@ export default function Hero() {
             href={personalInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-slate-500 hover:text-[#3B82F6] transition-colors"
+            className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 hover:text-[#60a5fa] transition-colors py-1"
           >
             Connect on LinkedIn ↗
           </a>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="flex items-center gap-2 p-1.5 rounded-xl bg-white/[0.02] border border-white/5"
-        >
+        <div className="flex items-center gap-2 p-1.5 rounded-xl bg-white/[0.02] border border-white/5">
           {socialLinks.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              target="_blank"
+              target={item.href.startsWith("mailto:") ? undefined : "_blank"}
               rel="noopener noreferrer"
               aria-label={item.label}
-              className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-white/5 hover:text-[#3B82F6] transition-all text-slate-500"
+              className="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white/5 hover:text-[#60a5fa] transition-all text-slate-400"
             >
-              {item.icon}
+              <span aria-hidden="true">{item.icon}</span>
             </a>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

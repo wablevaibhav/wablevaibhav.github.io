@@ -107,7 +107,7 @@ export default function Experience() {
 
   return (
     <section id="experience" className="section-shell scroll-mt-24 relative bg-[#0B0F14] overflow-hidden">
-      <div className="absolute top-0 right-0 w-[280px] h-[280px] bg-[#3B82F6]/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[280px] h-[280px] glow-blob pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <motion.div

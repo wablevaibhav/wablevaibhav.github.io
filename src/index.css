@@ -64,14 +64,10 @@ body {
   html { font-size: 16px; }
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  opacity: 0.35;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+/* Soft accent glow: a radial gradient instead of a blur() filter (much cheaper to paint). */
+.glow-blob {
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, rgba(59, 130, 246, 0.03) 35%, transparent 70%);
 }
 
 .font-display {
@@ -82,7 +78,6 @@ body::before {
   background: color-mix(in srgb, var(--color-surface) 92%, transparent);
   border: 1px solid var(--color-border);
   box-shadow: 0 12px 32px -18px rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(16px);
 }
 
 .section-shell {
@@ -185,4 +180,16 @@ body::before {
   font-size: clamp(1.1rem, 1.8vw, 1.35rem);
   line-height: 1.25;
   letter-spacing: -0.02em;
+}
+
+/* Subtle page fade-in (replaces the old splash screen). */
+@keyframes page-fade-in {
+  from { opacity: 0.001; }
+  to { opacity: 1; }
+}
+.page-fade-in {
+  animation: page-fade-in 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-fade-in { animation: none; }
 }
