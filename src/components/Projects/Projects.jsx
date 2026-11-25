@@ -116,11 +116,11 @@ function ProjectModal({ project, onClose }) {
             {project.emoji}
           </div>
           <div className="min-w-0 flex-1 pr-8">
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#3B82F6] mb-1.5 block">
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#3B82F6] mb-1.5 block">
               {project.category}
             </span>
             <h2 id={titleId} className="heading-card text-white mb-2">{project.title}</h2>
-            <span className="inline-block px-2.5 py-0.5 rounded-full text-[0.55rem] font-semibold uppercase tracking-wide border border-white/10 bg-white/5">
+            <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide border border-white/10 bg-white/5">
               {project.status}
             </span>
           </div>
@@ -141,7 +141,7 @@ function ProjectModal({ project, onClose }) {
           )}
 
           <div>
-            <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-slate-500 mb-2">Summary</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 mb-2">Summary</h3>
             <p className="text-sm text-slate-300 leading-relaxed">
               {project.longDescription || project.description}
             </p>
@@ -149,7 +149,7 @@ function ProjectModal({ project, onClose }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div>
-              <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-slate-500 mb-2">Features</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 mb-2">Features</h3>
               <ul className="space-y-1.5">
                 {project.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-slate-400 text-xs leading-relaxed">
@@ -160,12 +160,12 @@ function ProjectModal({ project, onClose }) {
               </ul>
             </div>
             <div>
-              <h3 className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-slate-500 mb-2">Stack</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 mb-2">Stack</h3>
               <ul className="flex flex-wrap gap-1.5">
                 {project.tech.map((t) => (
                   <li
                     key={t}
-                    className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/5 text-slate-400 text-[0.6rem] font-semibold uppercase tracking-wide"
+                    className="px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/5 text-slate-400 text-xs font-semibold uppercase tracking-wide"
                   >
                     {t}
                   </li>
@@ -203,10 +203,10 @@ function TechChips({ tech, max = 2 }) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {tech.slice(0, max).map((t) => (
-        <span key={t} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[0.55rem] font-semibold text-slate-500 uppercase tracking-wide">{t}</span>
+        <span key={t} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-xs font-semibold text-slate-400 uppercase tracking-wide">{t}</span>
       ))}
       {tech.length > max && (
-        <span className="px-2 py-0.5 rounded-md bg-[#3B82F6]/10 text-[#3B82F6] text-[0.55rem] font-semibold uppercase tracking-wide">+{tech.length - max}</span>
+        <span className="px-2 py-0.5 rounded-md bg-[#3B82F6]/10 text-[#3B82F6] text-xs font-semibold uppercase tracking-wide">+{tech.length - max}</span>
       )}
     </div>
   );
@@ -237,11 +237,11 @@ function ProjectCard({ project, onOpen }) {
         <div className="relative z-10 p-4 md:p-5 flex flex-col flex-1 w-full">
           <div className="mb-3">
             {!featured && <span className="text-2xl mb-2.5 block" aria-hidden="true">{project.emoji}</span>}
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.16em] text-[#3B82F6]/90 mb-1.5 block">{project.category}</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#60a5fa] mb-1.5 block">{project.category}</span>
             <h3 className={`text-white mb-1.5 group-hover:text-[#3B82F6] transition-colors ${featured ? "heading-feature" : "heading-card"}`}>
               {project.title}
             </h3>
-            <p className={`text-slate-500 text-xs leading-relaxed ${featured ? "line-clamp-3" : "line-clamp-2"}`}>{project.description}</p>
+            <p className={`text-slate-400 text-xs leading-relaxed ${featured ? "line-clamp-3" : "line-clamp-2"}`}>{project.description}</p>
           </div>
 
           <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-auto">

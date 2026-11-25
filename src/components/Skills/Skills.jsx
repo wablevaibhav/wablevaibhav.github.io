@@ -64,7 +64,7 @@ export default function Skills() {
                   {group.skills.map((s) => (
                     <li
                       key={s}
-                      className="px-2.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 text-slate-300 text-[0.65rem] font-semibold tracking-wide"
+                      className="px-2.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 text-slate-300 text-xs font-semibold tracking-wide"
                     >
                       {s}
                     </li>

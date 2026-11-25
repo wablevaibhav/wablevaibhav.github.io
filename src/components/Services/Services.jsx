@@ -56,7 +56,7 @@ export default function Services() {
                 <p className="text-slate-400 text-xs leading-relaxed flex-1">{s.desc}</p>
                 <div className="flex flex-wrap gap-1.5 pt-1">
                   {s.tags.map((t) => (
-                    <span key={t} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[0.6rem] font-semibold text-slate-400 uppercase tracking-wide">
+                    <span key={t} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-xs font-semibold text-slate-400 uppercase tracking-wide">
                       {t}
                     </span>
                   ))}
@@ -66,7 +66,7 @@ export default function Services() {
           </ul>
 
           <motion.div variants={itemVariants} className="surface-card p-5 rounded-2xl">
-            <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-4">How I work</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 mb-4">How I work</h3>
             <ol className="flex flex-col md:flex-row md:items-center gap-3 md:gap-2">
               {processSteps.map((step, i) => (
                 <li key={step} className="flex md:flex-1 items-center gap-3 md:gap-2">
@@ -75,7 +75,7 @@ export default function Services() {
                   </span>
                   <span className="text-sm font-semibold text-white">{step}</span>
                   {i < processSteps.length - 1 && (
-                    <FiArrowRight className="hidden md:block ml-auto text-slate-500 shrink-0" aria-hidden="true" />
+                    <FiArrowRight className="hidden md:block ml-auto text-slate-400 shrink-0" aria-hidden="true" />
                   )}
                 </li>
               ))}

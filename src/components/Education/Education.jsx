@@ -40,7 +40,7 @@ export default function Education() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <motion.div variants={itemVariants} className="space-y-3">
-              <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500 px-1">Education</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 px-1">Education</h3>
               <div className="space-y-3">
                 {education.map((edu) => (
                   <motion.div
@@ -53,10 +53,10 @@ export default function Education() {
                           {edu.icon}
                        </div>
                        <div className="min-w-0">
-                          <span className="text-[0.55rem] font-semibold uppercase tracking-[0.14em] text-slate-500 mb-1 block">{edu.year}</span>
+                          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400 mb-1 block">{edu.year}</span>
                           <h4 className="heading-card text-white group-hover:text-[#3B82F6] transition-colors mb-0.5">{edu.degree}</h4>
                           <p className="text-slate-400 font-medium text-xs">{edu.institution}</p>
-                          <p className="mt-1.5 text-[0.6rem] font-semibold text-slate-600 uppercase tracking-wide">{edu.location}</p>
+                          <p className="mt-1.5 text-xs font-semibold text-slate-400 uppercase tracking-wide">{edu.location}</p>
                        </div>
                     </div>
                   </motion.div>
@@ -65,7 +65,7 @@ export default function Education() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="space-y-3">
-              <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500 px-1">Certifications</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 px-1">Certifications</h3>
               <ul id="cert-list" className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {visibleCerts.map((cert) => (
                   <li
@@ -75,7 +75,7 @@ export default function Education() {
                     <span className="text-sm shrink-0" aria-hidden="true">{cert.icon}</span>
                     <div className="min-w-0">
                       <p className="text-xs font-semibold text-white leading-snug">{cert.title}</p>
-                      <p className="text-[0.55rem] text-slate-500 font-semibold uppercase tracking-wider">{cert.issuer}</p>
+                      <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">{cert.issuer}</p>
                     </div>
                   </li>
                 ))}

@@ -71,14 +71,14 @@ export default function About() {
 
                 <div className="flex flex-wrap gap-2 mt-5 pt-5 border-t border-white/5">
                   <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer"
-                     className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[0.7rem] font-semibold text-slate-400 hover:text-white transition-all">
+                     className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-slate-400 hover:text-white transition-all">
                     <FiLinkedin className="text-[#3B82F6]" /> LinkedIn <FiExternalLink size={12} />
                   </a>
                   <a href={personalInfo.github} target="_blank" rel="noopener noreferrer"
-                     className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[0.7rem] font-semibold text-slate-400 hover:text-white transition-all">
+                     className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-slate-400 hover:text-white transition-all">
                     <FiGithub /> GitHub <FiExternalLink size={12} />
                   </a>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[0.7rem] font-semibold text-[#3B82F6]">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-xs font-semibold text-[#3B82F6]">
                     <FiMapPin size={12} /> {personalInfo.location}
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export default function About() {
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-white mb-1 tracking-tight group-hover:text-[#3B82F6] transition-colors">{trait.title}</h3>
-                    <p className="text-slate-500 text-xs leading-relaxed">{trait.desc}</p>
+                    <p className="text-slate-400 text-xs leading-relaxed">{trait.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -108,7 +108,7 @@ export default function About() {
                     {i > 0 && <div className="w-px h-8 bg-white/10" />}
                     <div className="text-center">
                       <span className="block text-lg font-bold text-white tracking-tight">{stat.value}</span>
-                      <span className="text-[0.55rem] font-semibold uppercase tracking-wider text-[#3B82F6]/80">{stat.label}</span>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#60a5fa]">{stat.label}</span>
                     </div>
                   </div>
                 ))}

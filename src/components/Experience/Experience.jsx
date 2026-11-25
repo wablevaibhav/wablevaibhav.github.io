@@ -37,7 +37,7 @@ function ExperienceCard({ exp, index, isActive, onClick }) {
       <div className="flex-grow relative z-10 min-w-0">
         <div className="flex flex-col md:flex-row justify-between items-start gap-3 mb-2">
           <div>
-            <span className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-[#3B82F6]/90 mb-1.5 block">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#60a5fa] mb-1.5 block">
               {exp.type}
             </span>
             <h3 className="heading-card text-white mb-1 group-hover:text-[#3B82F6] transition-colors">
@@ -61,7 +61,7 @@ function ExperienceCard({ exp, index, isActive, onClick }) {
               className="overflow-hidden"
             >
               <div className="pt-4 border-t border-white/5 space-y-3">
-                   <h4 className="text-[0.55rem] font-semibold uppercase tracking-[0.16em] text-slate-500">Key contributions</h4>
+                   <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-400">Key contributions</h4>
                    <ul className="space-y-2">
                      {exp.highlights.map((h, i) => (
                        <motion.li
@@ -81,7 +81,7 @@ function ExperienceCard({ exp, index, isActive, onClick }) {
                   {exp.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 text-slate-500 text-[0.6rem] font-semibold uppercase tracking-wide"
+                      className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 text-slate-400 text-xs font-semibold uppercase tracking-wide"
                     >
                       {t}
                     </span>
@@ -90,9 +90,9 @@ function ExperienceCard({ exp, index, isActive, onClick }) {
               </div>
             </motion.div>
           ) : (
-            <div className="flex flex-wrap gap-4 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-slate-600 mt-2">
-               <span className="flex items-center gap-1.5"><FiCalendar className="text-[#3B82F6]/40" size={12} /> {exp.period}</span>
-               <span className="flex items-center gap-1.5"><FiMapPin className="text-[#3B82F6]/40" size={12} /> {exp.location}</span>
+            <div className="flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400 mt-2">
+               <span className="flex items-center gap-1.5"><FiCalendar className="text-[#60a5fa]" size={12} /> {exp.period}</span>
+               <span className="flex items-center gap-1.5"><FiMapPin className="text-[#60a5fa]" size={12} /> {exp.location}</span>
             </div>
           )}
         </AnimatePresence>

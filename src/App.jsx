@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiArrowUp, FiBriefcase } from 'react-icons/fi';
 import Navbar from './components/Navbar/Navbar';
@@ -80,22 +80,24 @@ function FloatingActions() {
   );
 }
 
+// Each below-the-fold section is its own Suspense boundary so React hydrates
+// them as separate, interruptible chunks instead of one long blocking task.
 export default function App() {
   return (
     <div className="min-h-screen bg-[#0B0F14] text-[#E8EEF4] antialiased overflow-x-hidden selection:bg-blue-400/30 selection:text-white page-fade-in">
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Services />
-        <Testimonials />
-        <Education />
-        <Contact />
+        <Suspense fallback={null}><About /></Suspense>
+        <Suspense fallback={null}><Skills /></Suspense>
+        <Suspense fallback={null}><Experience /></Suspense>
+        <Suspense fallback={null}><Projects /></Suspense>
+        <Suspense fallback={null}><Services /></Suspense>
+        <Suspense fallback={null}><Testimonials /></Suspense>
+        <Suspense fallback={null}><Education /></Suspense>
+        <Suspense fallback={null}><Contact /></Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}><Footer /></Suspense>
       <FloatingActions />
     </div>
   );

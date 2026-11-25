@@ -30,14 +30,12 @@ function Tagline() {
     return <p className={taglineClass}>{personalInfo.taglines[0]}</p>;
   }
   return (
-    <TypeAnimation
-      sequence={taglineSequence}
-      wrapper="p"
-      speed={50}
-      className={taglineClass}
-      repeat={Infinity}
-      aria-label={personalInfo.taglines.join(" · ")}
-    />
+    <p className={taglineClass}>
+      <span className="sr-only">{personalInfo.taglines.join(". ")}</span>
+      <span aria-hidden="true">
+        <TypeAnimation sequence={taglineSequence} wrapper="span" speed={50} repeat={Infinity} />
+      </span>
+    </p>
   );
 }
 
