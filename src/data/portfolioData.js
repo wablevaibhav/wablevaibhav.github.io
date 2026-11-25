@@ -47,6 +47,9 @@ Outside work I build AI developer tooling: CodeMind, an open-source local AI cod
   // TODO: verify the blog URL (codewithwable.blogspot.com).
   blog: "https://codewithwable.blogspot.com",
   portfolio: "https://wablevaibhav.github.io",
+  whatsapp: "https://wa.me/918698066529",
+  // TODO: add your Calendly / Cal.com link to show the "Book a Call" button (hidden while null).
+  bookingUrl: null,
   // TODO: replace public/resume.pdf with the Mobile / Full-Stack resume (keep the same path).
   resumeUrl: "/resume.pdf",
 };
@@ -465,3 +468,9 @@ export const processSteps = ["Discuss", "Scope & Quote", "Build with Weekly Demo
 // TODO: add real testimonials from clients or colleagues (with their permission).
 export const testimonials = [];
 
+
+// ── Contact form ──────────────────────────────────────────────────────────────
+// Sends through Web3Forms (https://web3forms.com, free, no backend needed).
+// TODO: create a Web3Forms access key for vaibhavswable@gmail.com and paste it here.
+// While it is empty the form falls back to opening the visitor's email app (mailto).
+export const WEB3FORMS_ACCESS_KEY = "";
