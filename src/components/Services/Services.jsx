@@ -1,0 +1,94 @@
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { services, processSteps } from '../../data/portfolioData';
+import { FiSmartphone, FiGlobe, FiServer, FiCpu, FiArrowRight, FiSend } from 'react-icons/fi';
+
+const serviceIcons = {
+  mobile: <FiSmartphone />,
+  web: <FiGlobe />,
+  backend: <FiServer />,
+  ai: <FiCpu />,
+};
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
+
+export default function Services() {
+  const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true });
+
+  return (
+    <section id="services" className="section-shell scroll-mt-24 relative bg-[#0B0F14] overflow-hidden">
+      <div className="absolute top-1/3 right-0 w-[300px] h-[300px] bg-[#3B82F6]/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="flex flex-col gap-8"
+        >
+          <motion.div variants={itemVariants} className="max-w-2xl">
+            <span className="section-tag">Services</span>
+            <h2 className="heading-section text-white mb-2">
+              Need an app built?{' '}
+              <span className="gradient-text">Let's ship it.</span>
+            </h2>
+            <p className="text-sm text-[var(--color-muted)] leading-relaxed max-w-lg">
+              Freelance work for startups and businesses: from first scope to store launch.
+            </p>
+          </motion.div>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            {services.map((s) => (
+              <motion.li key={s.id} variants={itemVariants} className="surface-card p-5 rounded-2xl flex flex-col gap-3">
+                <span className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6] flex items-center justify-center text-lg" aria-hidden="true">
+                  {serviceIcons[s.icon]}
+                </span>
+                <h3 className="heading-card text-white">{s.title}</h3>
+                <p className="text-slate-400 text-xs leading-relaxed flex-1">{s.desc}</p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {s.tags.map((t) => (
+                    <span key={t} className="px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-[0.6rem] font-semibold text-slate-400 uppercase tracking-wide">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.li>
+            ))}
+          </ul>
+
+          <motion.div variants={itemVariants} className="surface-card p-5 rounded-2xl">
+            <h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-500 mb-4">How I work</h3>
+            <ol className="flex flex-col md:flex-row md:items-center gap-3 md:gap-2">
+              {processSteps.map((step, i) => (
+                <li key={step} className="flex md:flex-1 items-center gap-3 md:gap-2">
+                  <span className="w-7 h-7 shrink-0 rounded-full bg-[#3B82F6] text-white text-xs font-bold flex items-center justify-center">
+                    {i + 1}
+                  </span>
+                  <span className="text-sm font-semibold text-white">{step}</span>
+                  {i < processSteps.length - 1 && (
+                    <FiArrowRight className="hidden md:block ml-auto text-slate-500 shrink-0" aria-hidden="true" />
+                  )}
+                </li>
+              ))}
+            </ol>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <a href="#contact" className="btn-primary">
+              <FiSend size={14} aria-hidden="true" /> Start a project
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

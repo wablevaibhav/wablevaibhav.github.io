@@ -178,3 +178,11 @@ body::before {
     transition-duration: 0.01ms !important;
   }
 }
+
+.heading-feature {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}

@@ -5,6 +5,7 @@ import {
   FiGithub,
   FiLinkedin,
   FiInstagram,
+  FiYoutube,
   FiMail,
   FiSend,
 } from "react-icons/fi";
@@ -13,6 +14,7 @@ const socialLinks = [
   { href: personalInfo.linkedin, icon: <FiLinkedin />, label: "LinkedIn" },
   { href: personalInfo.github, icon: <FiGithub />, label: "GitHub" },
   { href: personalInfo.instagram, icon: <FiInstagram />, label: "Instagram" },
+  { href: personalInfo.youtube, icon: <FiYoutube />, label: "YouTube" },
   { href: `mailto:${personalInfo.email}`, icon: <FiMail />, label: "Email" },
 ];
 

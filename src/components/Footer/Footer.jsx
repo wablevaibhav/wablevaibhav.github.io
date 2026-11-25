@@ -1,5 +1,5 @@
 import { personalInfo } from '../../data/portfolioData';
-import { FiHeart, FiGithub, FiLinkedin, FiMail, FiInstagram } from 'react-icons/fi';
+import { FiHeart, FiGithub, FiLinkedin, FiMail, FiInstagram, FiYoutube, FiEdit3 } from 'react-icons/fi';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -40,6 +40,8 @@ export default function Footer() {
                   { href: personalInfo.github, icon: <FiGithub /> },
                   { href: personalInfo.linkedin, icon: <FiLinkedin /> },
                   { href: personalInfo.instagram, icon: <FiInstagram /> },
+                  { href: personalInfo.youtube, icon: <FiYoutube /> },
+                  { href: personalInfo.blog, icon: <FiEdit3 /> },
                   { href: `mailto:${personalInfo.email}`, icon: <FiMail /> },
                 ].map((s, idx) => (
                   <a

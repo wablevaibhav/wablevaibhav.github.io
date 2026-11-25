@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { personalInfo } from '../../data/portfolioData';
 import {
-  FiMail, FiLinkedin, FiGithub, FiInstagram,
+  FiMail, FiLinkedin, FiGithub, FiInstagram, FiYoutube, FiEdit3,
   FiMapPin, FiSend, FiCheck, FiArrowUpRight
 } from 'react-icons/fi';
 
@@ -31,6 +31,22 @@ const socialCards = [
     href: personalInfo.instagram,
     color: '#7A8FA6',
     desc: '@thevaibhavbuilds',
+  },
+  {
+    icon: <FiYoutube />,
+    label: 'YouTube',
+    handle: '@codewithwable',
+    href: personalInfo.youtube,
+    color: '#f87171',
+    desc: '@codewithwable',
+  },
+  {
+    icon: <FiEdit3 />,
+    label: 'Blog',
+    handle: 'codewithwable.blogspot.com',
+    href: personalInfo.blog,
+    color: '#fb923c',
+    desc: 'codewithwable.blogspot.com',
   },
 ];
 

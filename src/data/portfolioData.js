@@ -42,6 +42,10 @@ Outside work I build AI developer tooling: CodeMind, an open-source local AI cod
   linkedin: "https://www.linkedin.com/in/vaibhavwable/",
   github: "https://github.com/wablevaibhav",
   instagram: "https://www.instagram.com/thevaibhavbuilds",
+  // TODO: verify the YouTube URL (@codewithwable).
+  youtube: "https://www.youtube.com/@codewithwable",
+  // TODO: verify the blog URL (codewithwable.blogspot.com).
+  blog: "https://codewithwable.blogspot.com",
   portfolio: "https://wablevaibhav.github.io",
   // TODO: replace public/resume.pdf with the Mobile / Full-Stack resume (keep the same path).
   resumeUrl: "/resume.pdf",
@@ -152,9 +156,13 @@ export const experiences = [
   },
 ];
 
+// Display order matters. featured: true → rendered as a larger card (top 3).
 export const projects = [
   {
     id: "codemind",
+    featured: true,
+    // TODO: add screenshot at public/projects/codemind.webp (1200×750) and set image to "/projects/codemind.webp".
+    image: null,
     title: "CodeMind — Local AI Coding Assistant",
     category: "Python · FastAPI · Ollama",
     description:
@@ -175,75 +183,47 @@ export const projects = [
     gradient: "linear-gradient(135deg, #0d3a2a, #1a2040)",
     emoji: "🧠",
     status: "Open Source",
-    links: { github: "https://github.com/wablevaibhav/CodeMind", live: null },
+    links: {
+      repos: [{ label: "Repository", url: "https://github.com/wablevaibhav/CodeMind" }],
+      live: null,
+    },
   },
   {
-    id: "job-tracker-api",
-    title: "Job Application Tracker API",
-    category: "Java · Spring Boot · PostgreSQL",
+    id: "gitmcp",
+    featured: true,
+    // TODO: add screenshot at public/projects/gitmcp.webp (1200×750) and set image to "/projects/gitmcp.webp".
+    image: null,
+    title: "GitMCP: GitHub MCP Server",
+    category: "Python · MCP · Pydantic",
     description:
-      "Java 21 / Spring Boot 3 REST API with JWT authentication, Hibernate/JPA on PostgreSQL, pagination and filtering, and full test coverage.",
+      "Open-source MCP server that lets Claude and other MCP clients read GitHub repos, issues, PRs and commits through 18 validated tools, with writes off by default.",
     longDescription:
-      "A production-style REST API for tracking job applications, built on Java 21 and Spring Boot 3 with Spring Security JWT authentication, Hibernate/JPA data access on PostgreSQL, pagination and filtering endpoints, JUnit/MockMvc test coverage, OpenAPI documentation, and a Docker Compose setup for local development.",
-    tech: ["Java 21", "Spring Boot 3", "Spring Security", "Hibernate/JPA", "PostgreSQL", "JUnit", "OpenAPI", "Docker Compose"],
+      "A Python MCP server that adapts the GitHub REST API into 18 tools an AI assistant can discover and call: 14 read-only tools plus 4 opt-in write tools, each with a strict Pydantic input schema. Transient failures (429, 5xx, timeouts) are retried within a hard budget while auth, permission and 404 errors never are. Safe by default: writes off, token never logged or returned, response sizes capped. Works with Claude Code and Claude Desktop over stdio, public repos need no token, and it is listed on mcpservers.org.",
+    tech: ["Python", "MCP Python SDK", "Pydantic", "GitHub REST API", "pytest", "Ruff", "mypy"],
     features: [
-      "JWT authentication (Spring Security)",
-      "Hibernate/JPA on PostgreSQL",
-      "Pagination and filtering",
-      "JUnit/MockMvc tests",
-      "OpenAPI docs & Docker Compose",
+      "14 read-only + 4 opt-in write tools",
+      "Strict Pydantic input schemas on every tool",
+      "Bounded retries for 429 / 5xx / timeouts",
+      "Safe defaults: writes off, token never logged",
+      "Claude Code & Claude Desktop over stdio",
+      "112 tests; ruff and mypy --strict clean",
+      "Listed on mcpservers.org",
     ],
-    color: "#ED8B00",
-    gradient: "linear-gradient(135deg, #3a2a0d, #241a3a)",
-    emoji: "🧾",
-    status: "Shipped",
-    links: { github: "https://github.com/wablevaibhav/job-tracker-api", live: null },
-  },
-  {
-    id: "job-tracker-ui",
-    title: "Job Tracker UI",
-    category: "React · TypeScript · Vite",
-    description:
-      "React 18 + TypeScript (Vite) dashboard for the Job Application Tracker API, with login, status filtering, inline updates, and live stats.",
-    longDescription:
-      "The frontend dashboard for the Job Application Tracker API — built with React 18, TypeScript, and Vite. Supports authenticated login, status-based filtering, inline application status updates, and live stats on the dashboard.",
-    tech: ["React 18", "TypeScript", "Vite"],
-    features: [
-      "Authenticated login flow",
-      "Status filtering",
-      "Inline status updates",
-      "Live stats dashboard",
-    ],
-    color: "#61DAFB",
-    gradient: "linear-gradient(135deg, #0d2a3a, #1a2040)",
-    emoji: "📊",
-    status: "Shipped",
-    links: { github: "https://github.com/wablevaibhav/job-tracker-ui", live: null },
-  },
-  {
-    id: "order-platform",
-    title: "Order Platform",
-    category: "Java · Spring Boot · Kafka",
-    description:
-      "Two Spring Boot microservices connected through Apache Kafka with an idempotent consumer and keyed partitions.",
-    longDescription:
-      "A microservices demo built around order processing — two independent Spring Boot services communicating through Apache Kafka, with an idempotent consumer, keyed partitions for ordering guarantees, PostgreSQL persistence, Docker Compose orchestration, and Mockito/JUnit test coverage.",
-    tech: ["Java", "Spring Boot", "Apache Kafka", "PostgreSQL", "Docker Compose", "Mockito", "JUnit"],
-    features: [
-      "Two Spring Boot microservices",
-      "Apache Kafka event-driven messaging",
-      "Idempotent consumer & keyed partitions",
-      "PostgreSQL persistence",
-      "Mockito/JUnit test coverage",
-    ],
-    color: "#818cf8",
-    gradient: "linear-gradient(135deg, #1a0d3a, #0d2a3a)",
-    emoji: "📦",
-    status: "Shipped",
-    links: { github: "https://github.com/wablevaibhav/order-platform", live: null },
+    color: "#a78bfa",
+    gradient: "linear-gradient(135deg, #1f1640, #0d2a3a)",
+    emoji: "🔌",
+    status: "Open Source",
+    links: {
+      repos: [{ label: "Repository", url: "https://github.com/wablevaibhav/gitmcp" }],
+      listing: { label: "mcpservers.org", url: "https://mcpservers.org/servers/wablevaibhav/gitmcp" },
+      live: null,
+    },
   },
   {
     id: "expense-tracker",
+    featured: true,
+    // TODO: add screenshot at public/projects/expense-tracker.webp (1200×750) and set image to "/projects/expense-tracker.webp".
+    image: null,
     title: "Expense Tracker — Smart Finance App",
     category: "Flutter · Generative AI",
     description:
@@ -262,10 +242,16 @@ export const projects = [
     gradient: "linear-gradient(135deg, #0d3a1f, #1a2d1a)",
     emoji: "💰",
     status: "Shipped",
-    links: { github: null, live: "https://expense-tracker-wablevaibhav.netlify.app/" },
+    links: {
+      // TODO: add the Expense Tracker GitHub repo URL (or leave empty if private).
+      repos: [],
+      live: "https://expense-tracker-wablevaibhav.netlify.app/",
+    },
   },
   {
     id: "child-tracker",
+    // TODO: add screenshot at public/projects/child-tracker.webp (1200×750) and set image to "/projects/child-tracker.webp".
+    image: null,
     title: "Child Tracker — Family Safety App",
     category: "Flutter · Firebase · Google Maps",
     description:
@@ -284,7 +270,69 @@ export const projects = [
     gradient: "linear-gradient(135deg, #0d2a3a, #0d3a26)",
     emoji: "🛡️",
     status: "Shipped",
-    links: { github: null, live: null },
+    links: {
+      // TODO: add the Child Tracker GitHub repo and/or a live / Play Store link.
+      repos: [],
+      live: null,
+    },
+  },
+  {
+    id: "job-tracker",
+    // TODO: add screenshot at public/projects/job-tracker.webp (1200×750) and set image to "/projects/job-tracker.webp".
+    image: null,
+    title: "Job Application Tracker (API + UI)",
+    category: "Spring Boot · React · TypeScript",
+    description:
+      "Full-stack job tracker: a Java 21 / Spring Boot 3 REST API with JWT auth on PostgreSQL, plus a React + TypeScript dashboard with filtering and live stats.",
+    longDescription:
+      "A full-stack app for tracking job applications. The API is built on Java 21 and Spring Boot 3 with Spring Security JWT authentication, Hibernate/JPA data access on PostgreSQL, pagination and filtering endpoints, JUnit/MockMvc test coverage, OpenAPI documentation and a Docker Compose setup for local development. The UI is a React 18 + TypeScript (Vite) dashboard with authenticated login, status-based filtering, inline application status updates and live stats.",
+    tech: ["Java 21", "Spring Boot 3", "Spring Security", "Hibernate/JPA", "PostgreSQL", "React 18", "TypeScript", "Vite", "JUnit", "OpenAPI", "Docker Compose"],
+    features: [
+      "JWT authentication (Spring Security)",
+      "Hibernate/JPA on PostgreSQL",
+      "Pagination and filtering",
+      "React + TypeScript dashboard with live stats",
+      "Inline status updates",
+      "JUnit/MockMvc tests, OpenAPI docs & Docker Compose",
+    ],
+    color: "#ED8B00",
+    gradient: "linear-gradient(135deg, #3a2a0d, #241a3a)",
+    emoji: "🧾",
+    status: "Shipped",
+    links: {
+      repos: [
+        { label: "API repo", url: "https://github.com/wablevaibhav/job-tracker-api" },
+        { label: "UI repo", url: "https://github.com/wablevaibhav/job-tracker-ui" },
+      ],
+      live: null,
+    },
+  },
+  {
+    id: "order-platform",
+    // TODO: add screenshot at public/projects/order-platform.webp (1200×750) and set image to "/projects/order-platform.webp".
+    image: null,
+    title: "Order Platform",
+    category: "Java · Spring Boot · Kafka",
+    description:
+      "Two Spring Boot microservices connected through Apache Kafka with an idempotent consumer and keyed partitions.",
+    longDescription:
+      "A microservices demo built around order processing — two independent Spring Boot services communicating through Apache Kafka, with an idempotent consumer, keyed partitions for ordering guarantees, PostgreSQL persistence, Docker Compose orchestration, and Mockito/JUnit test coverage.",
+    tech: ["Java", "Spring Boot", "Apache Kafka", "PostgreSQL", "Docker Compose", "Mockito", "JUnit"],
+    features: [
+      "Two Spring Boot microservices",
+      "Apache Kafka event-driven messaging",
+      "Idempotent consumer & keyed partitions",
+      "PostgreSQL persistence",
+      "Mockito/JUnit test coverage",
+    ],
+    color: "#818cf8",
+    gradient: "linear-gradient(135deg, #1a0d3a, #0d2a3a)",
+    emoji: "📦",
+    status: "Shipped",
+    links: {
+      repos: [{ label: "Repository", url: "https://github.com/wablevaibhav/order-platform" }],
+      live: null,
+    },
   },
 ];
 
@@ -376,3 +424,44 @@ export const certifications = [
     color: "#4285F4",
   },
 ];
+
+// ── Services (for freelance clients) — no pricing on purpose ──────────────────
+export const services = [
+  {
+    id: "mobile",
+    title: "Mobile Apps",
+    icon: "mobile",
+    desc: "Cross-platform apps in Flutter or React Native, taken all the way through Play Store and App Store delivery.",
+    tags: ["Flutter", "React Native", "Play Store", "App Store"],
+  },
+  {
+    id: "web",
+    title: "Web Apps",
+    icon: "web",
+    desc: "Fast, SEO-friendly web apps and dashboards built with Next.js and React.",
+    tags: ["Next.js", "React", "TypeScript"],
+  },
+  {
+    id: "backend",
+    title: "Backend & APIs",
+    icon: "backend",
+    desc: "Secure REST APIs in Node.js, deployed on AWS, ready for your mobile and web clients.",
+    tags: ["Node.js", "Express", "AWS"],
+  },
+  {
+    id: "ai",
+    title: "AI Features",
+    icon: "ai",
+    desc: "LLM features (OpenAI, Claude) added to the apps you already have, with validated, structured outputs.",
+    tags: ["OpenAI", "Claude", "LLM integration"],
+  },
+];
+
+export const processSteps = ["Discuss", "Scope & Quote", "Build with Weekly Demos", "Launch & Support"];
+
+// ── Testimonials ──────────────────────────────────────────────────────────────
+// The section only renders when this array is non-empty. Real quotes only.
+// Shape: { quote: "", name: "", role: "", company: "", link: "" }
+// TODO: add real testimonials from clients or colleagues (with their permission).
+export const testimonials = [];
+
