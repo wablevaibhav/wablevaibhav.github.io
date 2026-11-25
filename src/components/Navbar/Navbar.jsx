@@ -69,7 +69,7 @@ export default function Navbar() {
         flex items-center justify-between px-4 md:px-6 py-2.5 transition-all duration-500
         ${
           scrolled
-            ? "bg-[#0B0F14]/90 border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.45)] w-[94%] max-w-5xl"
+            ? "bg-[#0B0F14]/90 border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.45)] w-[96%] max-w-6xl"
             : "bg-transparent w-full max-w-6xl px-5 md:px-8"
         }
       `}
@@ -85,13 +85,13 @@ export default function Navbar() {
           <span className="gradient-text" aria-hidden="true">/&gt;</span>
         </a>
 
-        <ul className="hidden lg:flex items-center gap-1 xl:gap-3">
+        <ul className="hidden lg:flex items-center gap-0.5 xl:gap-2 min-w-0">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 aria-current={active === link.href ? "location" : undefined}
-                className={`relative block px-2.5 py-2 text-xs font-semibold tracking-[0.14em] uppercase transition-colors ${
+                className={`relative block px-2 xl:px-2.5 py-2 text-xs font-semibold tracking-[0.08em] xl:tracking-[0.14em] uppercase whitespace-nowrap transition-colors ${
                   active === link.href ? "text-white" : "text-slate-400 hover:text-slate-200"
                 }`}
                 onClick={(e) => go(e, link.href)}
@@ -109,12 +109,12 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 shrink-0">
           <a
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center justify-center px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-xs uppercase tracking-widest hover:border-[#3B82F6]/40 transition-all"
+            className="hidden md:flex items-center justify-center whitespace-nowrap px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-xs uppercase tracking-widest hover:border-[#3B82F6]/40 transition-all"
           >
             Resume ↗
           </a>

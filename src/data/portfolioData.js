@@ -41,7 +41,7 @@ Outside work I build AI developer tooling: CodeMind, an open-source local AI cod
   email: "vaibhavswable@gmail.com",
   linkedin: "https://www.linkedin.com/in/vaibhavwable/",
   github: "https://github.com/wablevaibhav",
-  instagram: "https://www.instagram.com/thevaibhavbuilds",
+  instagram: "https://www.instagram.com/wablevaibhav06",
   // TODO: verify the YouTube URL (@codewithwable).
   youtube: "https://www.youtube.com/@codewithwable",
   // TODO: verify the blog URL (codewithwable.blogspot.com).
@@ -50,6 +50,7 @@ Outside work I build AI developer tooling: CodeMind, an open-source local AI cod
   whatsapp: "https://wa.me/918698066529",
   // TODO: add your Calendly / Cal.com link to show the "Book a Call" button (hidden while null).
   bookingUrl: null,
+  // Hero photo: src/assets/profile.webp (auto-detected by Hero.jsx; replace the file to change it).
   // TODO: replace public/resume.pdf with the Mobile / Full-Stack resume (keep the same path).
   resumeUrl: "/resume.pdf",
 };
@@ -460,7 +461,29 @@ export const services = [
   },
 ];
 
-export const processSteps = ["Discuss", "Scope & Quote", "Build with Weekly Demos", "Launch & Support"];
+// "How I Work" stepper. TODO: review the wording of each step so it matches how you actually work.
+export const processSteps = [
+  {
+    title: "Discuss",
+    desc: "A short call about your idea, your users and what success looks like. No commitment, and you leave with honest advice either way.",
+    points: ["Goals & target users", "Platforms: Android, iOS, web", "Existing code or a fresh start"],
+  },
+  {
+    title: "Scope & Quote",
+    desc: "A written scope with features, milestones and a fixed quote, so you know exactly what you get and when.",
+    points: ["Feature list & milestones", "Timeline", "Fixed quote, no surprises"],
+  },
+  {
+    title: "Build with Weekly Demos",
+    desc: "Working software every week. You try the real build, give feedback and can re-prioritise as we go.",
+    points: ["Weekly demo builds", "Shared progress board", "Feedback folded into the next sprint"],
+  },
+  {
+    title: "Launch & Support",
+    desc: "Play Store / App Store submission or web deployment, then fixes and help after launch.",
+    points: ["Store submission or deploy", "Handover & docs", "Post-launch bug fixes"],
+  },
+];
 
 // ── Testimonials ──────────────────────────────────────────────────────────────
 // The section only renders when this array is non-empty. Real quotes only.

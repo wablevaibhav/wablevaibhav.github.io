@@ -57,14 +57,19 @@ function usePastHero() {
   return past;
 }
 
-// true while the contact section is on screen.
+// true while the contact section, or another on-page CTA marked with
+// data-hire-cta, is on screen (no point showing a second Hire Me button).
 function useContactVisible() {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const el = document.getElementById('contact');
-    if (!el) return undefined;
-    const io = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.15 });
-    io.observe(el);
+    const targets = [document.getElementById('contact'), ...document.querySelectorAll('[data-hire-cta]')].filter(Boolean);
+    if (!targets.length) return undefined;
+    const showing = new Set();
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) (e.isIntersecting ? showing.add(e.target) : showing.delete(e.target));
+      setVisible(showing.size > 0);
+    }, { threshold: 0.15 });
+    targets.forEach((t) => io.observe(t));
     return () => io.disconnect();
   }, []);
   return visible;
@@ -78,16 +83,19 @@ function FloatingActions() {
   return (
     <AnimatePresence>
       {pastHero && !contactVisible && (
-        <motion.a
+        // md:hidden lives on the wrapper: .btn-primary sets display in
+        // unlayered CSS, which would override a utility on the same element.
+        <motion.div
           key="hire"
-          href="#contact"
-          className="md:hidden fixed bottom-5 left-5 z-[90] btn-primary shadow-xl"
+          className="md:hidden fixed bottom-5 left-5 z-[90]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
         >
-          <FiBriefcase size={14} aria-hidden="true" /> Hire Me
-        </motion.a>
+          <a href="#contact" className="btn-primary shadow-xl">
+            <FiBriefcase size={14} aria-hidden="true" /> Hire Me
+          </a>
+        </motion.div>
       )}
       {pastHero && (
         <motion.button

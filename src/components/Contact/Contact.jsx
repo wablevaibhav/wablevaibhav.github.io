@@ -11,7 +11,7 @@ import { SiWhatsapp } from 'react-icons/si';
 const socialCards = [
   { icon: <FiLinkedin />, label: 'LinkedIn', href: personalInfo.linkedin, color: '#60a5fa', desc: 'linkedin.com/in/vaibhavwable' },
   { icon: <FiGithub />, label: 'GitHub', href: personalInfo.github, color: '#E8EEF4', desc: 'github.com/wablevaibhav' },
-  { icon: <FiInstagram />, label: 'Instagram', href: personalInfo.instagram, color: '#cbd5e1', desc: '@thevaibhavbuilds' },
+  { icon: <FiInstagram />, label: 'Instagram', href: personalInfo.instagram, color: '#cbd5e1', desc: '@wablevaibhav06' },
   { icon: <FiYoutube />, label: 'YouTube', href: personalInfo.youtube, color: '#f87171', desc: '@codewithwable' },
   { icon: <FiEdit3 />, label: 'Blog', href: personalInfo.blog, color: '#fb923c', desc: 'codewithwable.blogspot.com' },
 ];

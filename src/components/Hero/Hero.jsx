@@ -12,10 +12,9 @@ import {
 } from "react-icons/fi";
 import { SiFlutter, SiReact, SiNextdotjs, SiNodedotjs } from "react-icons/si";
 
-// Drop your photo at src/assets/profile.jpg (or .png / .webp) and it is picked
-// up automatically, hashed and optimised by Vite. Until then the hero shows an
-// animated monogram.
-// TODO: save your LinkedIn profile photo as src/assets/profile.jpg (square, at least 600×600).
+// Portrait: src/assets/profile.{jpg,jpeg,png,webp} is picked up automatically
+// and hashed by Vite. If the file is removed, the hero falls back to an animated
+// VW monogram.
 const photoModules = import.meta.glob("../../assets/profile.{jpg,jpeg,png,webp}", {
   eager: true,
   import: "default",

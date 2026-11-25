@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { services, processSteps } from '../../data/portfolioData';
+import { services } from '../../data/portfolioData';
+import ProcessStepper from './ProcessStepper';
 import { FiSmartphone, FiGlobe, FiServer, FiCpu, FiSend } from 'react-icons/fi';
 
 const serviceIcons = {
@@ -13,11 +14,6 @@ const serviceIcons = {
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
-};
-
-const stepVariants = {
-  hidden: { opacity: 0, x: -12 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.45 } },
 };
 
 const itemVariants = {
@@ -70,25 +66,12 @@ export default function Services() {
             ))}
           </ul>
 
-          <motion.div variants={itemVariants} className="surface-card p-5 rounded-2xl">
-            <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 mb-4">How I work</h3>
-            <motion.ol variants={containerVariants} className="flex flex-col md:flex-row md:items-center gap-3 md:gap-2">
-              {processSteps.map((step, i) => (
-                <motion.li key={step} variants={stepVariants} className="flex md:flex-1 items-center gap-3 md:gap-2">
-                  <span className="w-7 h-7 shrink-0 rounded-full bg-[#3B82F6] text-white text-xs font-bold flex items-center justify-center">
-                    {i + 1}
-                  </span>
-                  <span className="text-sm font-semibold text-white">{step}</span>
-                  {i < processSteps.length - 1 && (
-                    <span className="hidden md:block flex-1 h-px mx-2 bg-gradient-to-r from-[#3B82F6]/60 to-transparent" aria-hidden="true" />
-                  )}
-                </motion.li>
-              ))}
-            </motion.ol>
+          <motion.div variants={itemVariants}>
+            <ProcessStepper />
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <a href="#contact" className="btn-primary">
+            <a href="#contact" data-hire-cta className="btn-primary btn-shine">
               <FiSend size={14} aria-hidden="true" /> Start a project
             </a>
           </motion.div>
