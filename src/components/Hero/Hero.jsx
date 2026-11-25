@@ -78,11 +78,11 @@ export default function Hero() {
         >
           Software Engineer at{" "}
           <span className="text-[#3B82F6]">CentraLogic</span>
-          , adding LLM features to fast apps with{" "}
+          , building mobile and web apps with{" "}
           <span className="text-white font-semibold">
-            React Native, Flutter, Node.js, and Spring Boot
+            Flutter, React Native, Next.js and Node.js
           </span>
-          .
+          , and shipping LLM features in real apps.
         </motion.p>
 
         <motion.div
