@@ -190,3 +190,107 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .page-fade-in { animation: none; }
 }
+
+/* ── Hero motion ───────────────────────────────────────────────────────────
+   Pure CSS so it starts before any JS loads, and only transform/opacity are
+   animated so it runs on the compositor. All of it is neutralised by the
+   prefers-reduced-motion rule above. */
+@keyframes hero-slide { from { transform: translateY(14px); } to { transform: none; } }
+@keyframes hero-pop { from { transform: scale(0.92); } to { transform: none; } }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes float-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes badge-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  33% { transform: translate3d(4px, -8px, 0); }
+  66% { transform: translate3d(-4px, -3px, 0); }
+}
+@keyframes glow-pulse { 0%, 100% { opacity: 0.55; transform: scale(0.95); } 50% { opacity: 1; transform: scale(1.05); } }
+@keyframes aurora {
+  0% { transform: translate3d(-6%, -4%, 0) rotate(0deg); }
+  50% { transform: translate3d(5%, 4%, 0) rotate(8deg); }
+  100% { transform: translate3d(-6%, -4%, 0) rotate(0deg); }
+}
+@keyframes shimmer { to { background-position: 200% center; } }
+@keyframes scroll-dot { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(10px); opacity: 0; } 100% { opacity: 0; } }
+@keyframes shine { from { transform: translateX(-120%) skewX(-20deg); } to { transform: translateX(220%) skewX(-20deg); } }
+
+.hero-slide { animation: hero-slide 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-pop { animation: hero-pop 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.hero-float { animation: float-y 6s ease-in-out infinite; }
+.hero-badge { animation: badge-float 5s ease-in-out infinite; }
+.hero-orbit { animation: spin-slow 28s linear infinite; }
+
+.hero-ring {
+  background: conic-gradient(from 0deg, #3b82f6, #22d3ee, #a78bfa, #3b82f6 60%, transparent 75%, #3b82f6);
+  animation: spin-slow 6s linear infinite;
+}
+.hero-glow {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.35) 0%, rgba(59, 130, 246, 0.08) 45%, transparent 70%);
+  animation: glow-pulse 5s ease-in-out infinite;
+}
+.hero-aurora::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 40% 35% at 70% 35%, rgba(59, 130, 246, 0.16), transparent 70%),
+    radial-gradient(ellipse 35% 30% at 25% 70%, rgba(167, 139, 250, 0.1), transparent 70%),
+    radial-gradient(ellipse 30% 25% at 85% 85%, rgba(34, 211, 238, 0.08), transparent 70%);
+  animation: aurora 18s ease-in-out infinite;
+}
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(122, 143, 166, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(122, 143, 166, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 80%);
+}
+.hero-shimmer {
+  background: linear-gradient(110deg, #e8eef4 0%, #3b82f6 30%, #a5c8ff 45%, #3b82f6 60%, #7a8fa6 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+.hero-scroll-dot { animation: scroll-dot 1.8s ease-in-out infinite; }
+
+/* Button sheen on hover */
+.btn-shine { position: relative; overflow: hidden; }
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  pointer-events: none;
+}
+.btn-shine:hover::after { animation: shine 0.8s ease-out; }
+
+/* Cursor spotlight on cards: --mx / --my are set from pointer position. */
+.spotlight { position: relative; }
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 0%), rgba(59, 130, 246, 0.14), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight:hover::before { opacity: 1; }
+
+/* Lift on hover (cards) */
+.lift { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, box-shadow 0.35s ease; }
+.lift:hover {
+  transform: translateY(-4px);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 24px 48px -24px rgba(59, 130, 246, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift:hover { transform: none; }
+  .hero-shimmer { animation: none; }
+}

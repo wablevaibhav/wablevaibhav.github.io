@@ -33,10 +33,10 @@ function ProjectVisual({ project, className = "" }) {
           loading="lazy"
           decoding="async"
           onError={() => setFailed(true)}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       ) : (
-        <span className="text-4xl" aria-hidden="true">
+        <span className="text-4xl transition-transform duration-500 group-hover:scale-125 group-hover:-rotate-6" aria-hidden="true">
           {project.emoji}
         </span>
       )}
@@ -221,7 +221,7 @@ function ProjectCard({ project, onOpen }) {
         type="button"
         onClick={onOpen}
         aria-haspopup="dialog"
-        className={`group relative surface-card rounded-2xl overflow-hidden w-full text-left flex flex-col focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6] ${
+        className={`group relative surface-card spotlight lift rounded-2xl overflow-hidden w-full text-left flex flex-col focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3B82F6] ${
           featured ? "min-h-[340px]" : "min-h-[200px]"
         }`}
       >

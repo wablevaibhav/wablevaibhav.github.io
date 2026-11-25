@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { services, processSteps } from '../../data/portfolioData';
-import { FiSmartphone, FiGlobe, FiServer, FiCpu, FiArrowRight, FiSend } from 'react-icons/fi';
+import { FiSmartphone, FiGlobe, FiServer, FiCpu, FiSend } from 'react-icons/fi';
 
 const serviceIcons = {
   mobile: <FiSmartphone />,
@@ -13,6 +13,11 @@ const serviceIcons = {
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const stepVariants = {
+  hidden: { opacity: 0, x: -12 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.45 } },
 };
 
 const itemVariants = {
@@ -48,8 +53,8 @@ export default function Services() {
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             {services.map((s) => (
-              <motion.li key={s.id} variants={itemVariants} className="surface-card p-5 rounded-2xl flex flex-col gap-3">
-                <span className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6] flex items-center justify-center text-lg" aria-hidden="true">
+              <motion.li key={s.id} variants={itemVariants} className="surface-card spotlight lift p-5 rounded-2xl flex flex-col gap-3 group">
+                <span className="w-10 h-10 rounded-xl bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#60a5fa] flex items-center justify-center text-lg transition-transform duration-500 group-hover:rotate-[-8deg] group-hover:scale-110" aria-hidden="true">
                   {serviceIcons[s.icon]}
                 </span>
                 <h3 className="heading-card text-white">{s.title}</h3>
@@ -67,19 +72,19 @@ export default function Services() {
 
           <motion.div variants={itemVariants} className="surface-card p-5 rounded-2xl">
             <h3 className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400 mb-4">How I work</h3>
-            <ol className="flex flex-col md:flex-row md:items-center gap-3 md:gap-2">
+            <motion.ol variants={containerVariants} className="flex flex-col md:flex-row md:items-center gap-3 md:gap-2">
               {processSteps.map((step, i) => (
-                <li key={step} className="flex md:flex-1 items-center gap-3 md:gap-2">
+                <motion.li key={step} variants={stepVariants} className="flex md:flex-1 items-center gap-3 md:gap-2">
                   <span className="w-7 h-7 shrink-0 rounded-full bg-[#3B82F6] text-white text-xs font-bold flex items-center justify-center">
                     {i + 1}
                   </span>
                   <span className="text-sm font-semibold text-white">{step}</span>
                   {i < processSteps.length - 1 && (
-                    <FiArrowRight className="hidden md:block ml-auto text-slate-400 shrink-0" aria-hidden="true" />
+                    <span className="hidden md:block flex-1 h-px mx-2 bg-gradient-to-r from-[#3B82F6]/60 to-transparent" aria-hidden="true" />
                   )}
-                </li>
+                </motion.li>
               ))}
-            </ol>
+            </motion.ol>
           </motion.div>
 
           <motion.div variants={itemVariants}>

@@ -19,7 +19,12 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, staggerChildren: 0.035, delayChildren: 0.15 } },
+};
+
+const chipVariants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { opacity: 1, scale: 1, transition: { type: 'spring', stiffness: 400, damping: 24 } },
 };
 
 export default function Skills() {
@@ -48,7 +53,7 @@ export default function Skills() {
               <motion.div
                 key={group.category}
                 variants={itemVariants}
-                className="surface-card p-5 rounded-2xl flex flex-col gap-4"
+                className="surface-card spotlight lift p-5 rounded-2xl flex flex-col gap-4"
               >
                 <h3 className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-white">
                   <span
@@ -60,16 +65,17 @@ export default function Skills() {
                   </span>
                   {group.category}
                 </h3>
-                <ul className="flex flex-wrap gap-1.5">
+                <motion.ul variants={containerVariants} className="flex flex-wrap gap-1.5">
                   {group.skills.map((s) => (
-                    <li
+                    <motion.li
                       key={s}
-                      className="px-2.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 text-slate-300 text-xs font-semibold tracking-wide"
+                      variants={chipVariants}
+                      className="px-2.5 py-1.5 rounded-lg bg-white/[0.03] border border-white/5 text-slate-300 text-xs font-semibold tracking-wide hover:border-[#3B82F6]/40 hover:text-white transition-colors"
                     >
                       {s}
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
               </motion.div>
             ))}
           </div>

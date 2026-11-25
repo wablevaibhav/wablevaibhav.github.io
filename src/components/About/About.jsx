@@ -90,7 +90,7 @@ export default function About() {
                 <motion.div
                   key={trait.title}
                   variants={itemVariants}
-                  className="surface-card p-4 rounded-2xl flex gap-3.5 items-start group"
+                  className="surface-card spotlight lift p-4 rounded-2xl flex gap-3.5 items-start group"
                 >
                   <div className="text-base p-2.5 rounded-xl bg-white/5 text-[#3B82F6] shrink-0">
                     {trait.icon}

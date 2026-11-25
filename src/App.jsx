@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { FiArrowUp, FiBriefcase } from 'react-icons/fi';
 import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
@@ -12,6 +12,35 @@ import Testimonials from './components/Testimonials/Testimonials';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+
+// Thin progress bar at the top of the page.
+function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
+  return (
+    <motion.div
+      aria-hidden="true"
+      className="fixed top-0 left-0 right-0 h-[3px] z-[120] origin-left bg-gradient-to-r from-[#3B82F6] via-[#22d3ee] to-[#a78bfa]"
+      style={{ scaleX }}
+    />
+  );
+}
+
+// One delegated listener drives the cursor spotlight on every .spotlight card.
+function useSpotlight() {
+  useEffect(() => {
+    if (!window.matchMedia('(hover: hover)').matches) return undefined;
+    const onMove = (e) => {
+      const card = e.target.closest?.('.spotlight');
+      if (!card) return;
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      card.style.setProperty('--my', `${e.clientY - r.top}px`);
+    };
+    document.addEventListener('pointermove', onMove, { passive: true });
+    return () => document.removeEventListener('pointermove', onMove);
+  }, []);
+}
 
 // true once the user has scrolled past the hero.
 function usePastHero() {
@@ -83,8 +112,10 @@ function FloatingActions() {
 // Each below-the-fold section is its own Suspense boundary so React hydrates
 // them as separate, interruptible chunks instead of one long blocking task.
 export default function App() {
+  useSpotlight();
   return (
     <div className="min-h-screen bg-[#0B0F14] text-[#E8EEF4] antialiased overflow-x-hidden selection:bg-blue-400/30 selection:text-white page-fade-in">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
