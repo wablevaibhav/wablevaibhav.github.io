@@ -499,10 +499,9 @@ export const testimonials = [];
 export const WEB3FORMS_ACCESS_KEY = "";
 
 // ── Analytics (Umami Cloud) ───────────────────────────────────────────────────
-// TODO: create a free account at https://cloud.umami.is, add the website
-// "wablevaibhav.github.io", and paste its Website ID here. Tracking is off
-// while this is empty. See README → Analytics.
-export const UMAMI_WEBSITE_ID = "";
+// Umami Cloud website ID for wablevaibhav.github.io. Tracking is off if this
+// is empty. See README → Analytics.
+export const UMAMI_WEBSITE_ID = "7ee0a8f1-8340-4d87-bea2-8774fca93582";
 export const UMAMI_SCRIPT_URL = "https://cloud.umami.is/script.js";
 // Only this hostname is counted (localhost and previews are ignored).
 export const ANALYTICS_DOMAIN = "wablevaibhav.github.io";
